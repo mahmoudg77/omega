@@ -1,0 +1,69 @@
+@import url(https://fonts.googleapis.com/css?family=Dosis:300,400);
+@import url(https://fonts.googleapis.com/css?family=Cairo:300,400);
+
+@import url('https://fonts.googleapis.com/css?family=Tajawal');
+
+@media only screen and (max-width: 600px) {
+
+    .camera_pag{
+        left: 200px !important;
+    }
+
+}
+
+body{
+	direction: rtl;
+
+}
+
+.navbar-nav > li{
+    float:right !important;
+}
+
+.header{
+    background-image: url('/images/Preview-flip.jpg');
+}
+
+.header .header-title {
+    text-align: right;
+}
+
+/*start header*/
+/*end header*/
+
+/*start navbar*/
+
+.contact-form input:not([type='submit']) + i {
+    float: right;
+    right: 10px;
+}
+
+.contact-form .asterisx {
+    left: 13px;
+
+}
+
+.contact-form .send-icon {
+    right: 97px;
+}
+
+.contact-form .send-icon-btn{
+    left: 115px;
+}
+
+/*end contact page*/
+
+/*start footer*/
+
+.cat-dashboard .list-group.list-group-root > .list-group > .list-group-item {
+  padding-left: 30px;
+}
+
+.cat-dashboard .list-group.list-group-root > .list-group > .list-group > .list-group-item {
+  padding-left: 45px;
+}
+
+.cat-dashboard .list-group-item .glyphicon {
+  margin-right: 5px;
+}
+/*end category in dashboard*/
