@@ -116,7 +116,11 @@
         <div class="col-md-10 p0">
             <div class="collapse navbar-collapse" id="min_navbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown submenu">
+                    @foreach(Func::menu('main') as $link)
+                        {!!  Func::drowMenuLink($link)!!}
+                    @endforeach
+                    <li><a href="#" class="nav_searchFrom"><i class="fa fa-home"></i></a></li>
+                    <!-- <li class="dropdown submenu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Home</a>
                         <ul class="dropdown-menu">
                             <li><a href="index.html">Home</a></li>
@@ -146,7 +150,7 @@
                         </ul>
                     </li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="#" class="nav_searchFrom"><i class="fa fa-home"></i></a></li>
+                    <li><a href="#" class="nav_searchFrom"><i class="fa fa-home"></i></a></li> -->
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div>

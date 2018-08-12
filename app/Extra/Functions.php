@@ -228,7 +228,7 @@ class Functions
         return implode(" ",$result);
     }
     public static function drowMenuLink($link){
-        $result='<li class="'.(request()->is($link->category_id>0?ltrim(route('categoryBySlug',$link->category->slug,false),""):app()->getLocale().$link->customlink)?'active':'').'">';
+        $result='<li class="dropdown submenu '.(request()->is($link->category_id>0?ltrim(route('categoryBySlug',$link->category->slug,false),""):app()->getLocale().$link->customlink)?'active':'').'">';
 
         if($link->Links()->count()>0) {
             $result .= '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
