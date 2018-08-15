@@ -258,7 +258,7 @@ class Functions
     public static function drowMenuCat($cat){
         $result='<li class="'.(request()->is(ltrim(route('categoryBySlug',$cat->slug,false),"")?'active':'')).'">';
 
-
+       $result="";
 
                     //$cat = \App\Models\Category::find($link->category_id);
 
@@ -277,7 +277,7 @@ class Functions
                         $result .= '<a href="' . route('categoryBySlug', $cat->slug) . '" >' . $cat->title . '</a>';
                     }
 
-        $result .= ' </li>';
+      // $result .= ' </li>';
         return  $result;
     }
 }
