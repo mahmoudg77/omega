@@ -33,26 +33,16 @@
     <section class="professional_builder row">
         <div class="container">
            <div class="row builder_all">
-                <div class="col-md-3 col-sm-6 builder">
-                    <i class="fa fa-home" aria-hidden="true"></i>
-                    <h4>Professional Builde</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod </p>
-                </div>
-                <div class="col-md-3 col-sm-6 builder">
-                    <i class="fa fa-building" aria-hidden="true"></i>
-                    <h4>We Deliver Quality</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod </p>
-                </div>
-                <div class="col-md-3 col-sm-6 builder">
-                    <i class="fa fa-clock-o" aria-hidden="true"></i>
-                    <h4>Always On Time</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod </p>
-                </div>
-                <div class="col-md-3 col-sm-6 builder">
-                    <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                    <h4>We Are Pasionate</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod </p>
-                </div>
+               @if (count($category)>0)
+               @foreach($category as $service)
+                    <div class="col-md-4 col-sm-6 builder">
+                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                        <h4>{{$service->title}}</h4>
+                        {!! $service->description !!}
+                    </div>
+               @endforeach
+               @endif
+                
            </div>
         </div>
     </section>
@@ -62,26 +52,31 @@
     <section class="about_us_area row">
         <div class="container">
             <div class="tittle wow fadeInUp">
-                <h2>ABOUT US</h2>
-                <h4>Lorem Ipsum is simply dummy text of the printing and typesetting industry</h4>
+                @if($page=Func::getPageBySlug('about-us'))
+                    <h2>{{ $page->title}}</h2>
+                    <h4>{!! str_limit($page->body, 450,"") !!}</h4>
+                @endif
             </div>
+            @if($page=Func::getPageBySlug('who-we-are'))
             <div class="row about_row">
                 <div class="who_we_area col-md-7 col-sm-6">
                     <div class="subtittle">
-                        <h2>WHO WE ARE</h2>
+                        <h2>{{ $page->title}}</h2>
                     </div>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
+                    {!! str_limit($page->body, 450,"") !!}
                     <a href="#" class="button_all">Contact Now</a>
                 </div>
                 <div class="col-md-5 col-sm-6 about_client">
                     <img src="/images/about_client.jpg" alt="">
                 </div>
             </div>
+            @endif
         </div>
     </section>
     <!-- End About Us Area -->
 
     <!-- What ew offer Area -->
+<!--
     <section class="what_we_area row">
         <div class="container">
             <div class="tittle wow fadeInUp">
@@ -122,62 +117,8 @@
             </div>
         </div>
     </section>
+-->
     <!-- End What ew offer Area -->
-
-    <!-- Our Features Area -->
-    <section class="our_feature_area">
-        <div class="container">
-            <div class="tittle wow fadeInUp">
-                <h2>Our Features</h2>
-                <h4>Lorem Ipsum is simply dummy text of the printing and typesetting industry</h4>
-            </div>
-            <div class="feature_row row">
-                <div class="col-md-6 feature_img">
-                    <img src="/images/feature-man.jpg" alt="">
-                </div>
-                <div class="col-md-6 feature_content">
-                    <div class="subtittle">
-                        <h2>WHY CHOOSE US</h2>
-                        <h5>There are many variations of passages of Lorem Ipsum available.</h5>
-                    </div>
-                    <div class="media">
-                        <div class="media-left">
-                            <a href="#">
-                                <i class="fa fa-wrench" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <a href="#">30+ YEARS OF EXPERIENCE</a>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting indus-try. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <div class="media-left">
-                            <a href="#">
-                                <i class="fa fa-rocket" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <a href="#">QUALIFIED EXPERTS</a>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting indus-try. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <div class="media-left">
-                            <a href="#">
-                                <i class="fa fa-users" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <a href="#">Best Customer Services</a>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting indus-try. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Our Features Area -->
 
     <!-- Our Services Area -->
     <section class="our_services_area">
@@ -278,6 +219,7 @@
     <!-- End Our Services Area -->
 
     <!-- Our Team Area -->
+<!--
     <section class="our_team_area">
         <div class="container">
             <div class="tittle wow fadeInUp">
@@ -344,107 +286,8 @@
             </div>
         </div>
     </section>
+-->
     <!-- End Our Team Area -->
-
-    <!-- Our Achievments Area -->
-    <section class="our_achievments_area" data-stellar-background-ratio="0.3">
-        <div class="container">
-            <div class="tittle wow fadeInUp">
-                <h2>Our Achievments</h2>
-                <h4>Lorem Ipsum is simply dummy text of the printing and typesetting industry</h4>
-            </div>
-            <div class="achievments_row row">
-                <div class="col-md-3 col-sm-6 p0 completed">
-                    <i class="fa fa-connectdevelop" aria-hidden="true"></i>
-                    <span class="counter">800</span>
-                    <h6>PROJECT COMPLETED</h6>
-                </div>
-                <div class="col-md-3 col-sm-6 p0 completed">
-                    <i class="fa fa-home" aria-hidden="true"></i>
-                    <span class="counter">230</span>
-                    <h6>HOUSE RENOVATIONS</h6>
-                </div>
-                <div class="col-md-3 col-sm-6 p0 completed">
-                    <i class="fa fa-child" aria-hidden="true"></i>
-                    <span class="counter">1390</span>
-                    <h6>WORKERS EMPLOYED</h6>
-                </div>
-                <div class="col-md-3 col-sm-6 p0 completed">
-                    <i class="fa fa-trophy" aria-hidden="true"></i>
-                    <span class="counter">125</span>
-                    <h6>AWARDS WON</h6>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Our Achievments Area -->
-
-    <!-- Our Featured Works Area -->
-    <section class="featured_works row" data-stellar-background-ratio="0.3">
-        <div class="tittle wow fadeInUp">
-            <h2>Our Featured Works</h2>
-            <h4>Lorem Ipsum is simply dummy text of the printing and typesetting industry</h4>
-        </div>
-        <div class="featured_gallery">
-            <div class="col-md-3 col-sm-4 col-xs-6 gallery_iner p0">
-                <img src="/images/gallery/gl-1.jpg" alt="">
-                <div class="gallery_hover">
-                    <h4>Bolt Apartments</h4>
-                    <a href="#">VIEW PROJECT</a>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-4 col-xs-6 gallery_iner p0">
-                <img src="/images/gallery/gl-2.jpg" alt="">
-                <div class="gallery_hover">
-                    <h4>Bolt Apartments</h4>
-                    <a href="#">VIEW PROJECT</a>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-4 col-xs-6 gallery_iner p0">
-                <img src="/images/gallery/gl-3.jpg" alt="">
-                <div class="gallery_hover">
-                    <h4>Bolt Apartments</h4>
-                    <a href="#">VIEW PROJECT</a>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-4 col-xs-6 gallery_iner p0">
-                <img src="/images/gallery/gl-4.jpg" alt="">
-                <div class="gallery_hover">
-                    <h4>Bolt Apartments</h4>
-                    <a href="#">VIEW PROJECT</a>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-4 col-xs-6 gallery_iner p0">
-                <img src="/images/gallery/gl-5.jpg" alt="">
-                <div class="gallery_hover">
-                    <h4>Bolt Apartments</h4>
-                    <a href="#">VIEW PROJECT</a>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-4 col-xs-6 gallery_iner p0">
-                <img src="/images/gallery/gl-6.jpg" alt="">
-                <div class="gallery_hover">
-                    <h4>Bolt Apartments</h4>
-                    <a href="#">VIEW PROJECT</a>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-4 col-xs-6 gallery_iner p0">
-                <img src="/images/gallery/gl-7.jpg" alt="">
-                <div class="gallery_hover">
-                    <h4>Bolt Apartments</h4>
-                    <a href="#">VIEW PROJECT</a>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-4 col-xs-6 gallery_iner p0">
-                <img src="/images/gallery/gl-8.jpg" alt="">
-                <div class="gallery_hover">
-                    <h4>Bolt Apartments</h4>
-                    <a href="#">VIEW PROJECT</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Our Featured Works Area -->
 
     <!-- Our Latest Blog Area -->
     <section class="latest_blog_area">
