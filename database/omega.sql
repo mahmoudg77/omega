@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 12, 2018 at 08:47 PM
+-- Generation Time: Aug 24, 2018 at 02:21 PM
 -- Server version: 5.7.14
 -- PHP Version: 7.0.10
 
@@ -84,6 +84,17 @@ CREATE TABLE `categories` (
   `sort` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`id`, `created_by`, `updated_by`, `parent_id`, `ordering`, `deleted_at`, `created_at`, `updated_at`, `slug`, `sort`) VALUES
+(1, NULL, NULL, NULL, 0, NULL, '2018-08-24 10:41:02', '2018-08-24 10:41:02', 'services', 0),
+(2, NULL, NULL, 1, 0, NULL, '2018-08-24 10:44:11', '2018-08-24 10:44:11', 'trading', 0),
+(3, NULL, NULL, 1, 0, NULL, '2018-08-24 10:45:06', '2018-08-24 10:45:06', 'lvp', 0),
+(4, NULL, NULL, 1, 0, NULL, '2018-08-24 10:45:58', '2018-08-24 10:45:58', 'contracting', 0),
+(6, NULL, NULL, NULL, 0, NULL, '2018-08-24 12:07:24', '2018-08-24 12:07:24', 'blog', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -97,6 +108,22 @@ CREATE TABLE `category_translations` (
   `title` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `category_translations`
+--
+
+INSERT INTO `category_translations` (`id`, `category_id`, `locale`, `title`, `description`) VALUES
+(1, 1, 'ar', 'خدماتنا', NULL),
+(2, 1, 'en', 'Services', NULL),
+(3, 2, 'ar', 'تجارة', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>'),
+(4, 2, 'en', 'Trading', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>'),
+(5, 3, 'ar', 'تصنيع اللوحات', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>'),
+(6, 3, 'en', 'LVP', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>'),
+(7, 4, 'ar', 'مقاولات', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>'),
+(8, 4, 'en', 'Contracting', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>'),
+(11, 6, 'ar', 'أخبارنا', '<p>LOREM IPSUM IS SIMPLY DUMMY TEXT OF THE PRINTING AND TYPESETTING INDUSTRY</p>'),
+(12, 6, 'en', 'Blog', '<p>LOREM IPSUM IS SIMPLY DUMMY TEXT OF THE PRINTING AND TYPESETTING INDUSTRY</p>');
 
 -- --------------------------------------------------------
 
@@ -151,6 +178,17 @@ CREATE TABLE `media_files` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `media_files`
+--
+
+INSERT INTO `media_files` (`id`, `name`, `size`, `media_type`, `model_name`, `model_id`, `model_attribute`, `created_at`, `updated_at`) VALUES
+(1, '0907d_about-us.jpg', 77710, 'image/jpeg', 'App\\Models\\Post', 1, 'main', '2018-08-24 11:38:02', '2018-08-24 11:38:02'),
+(2, 'de231_about-us.jpg', 77710, 'image/jpeg', 'App\\Models\\Post', 4, 'main', '2018-08-24 11:48:13', '2018-08-24 11:48:13'),
+(3, 'd5f81_lb-1.jpg', 28702, 'image/jpeg', 'App\\Models\\Post', 5, 'main', '2018-08-24 12:13:30', '2018-08-24 12:13:30'),
+(4, '15837_lb-2.jpg', 27849, 'image/jpeg', 'App\\Models\\Post', 6, 'main', '2018-08-24 12:15:21', '2018-08-24 12:15:21'),
+(5, '9affa_lb-3.jpg', 19845, 'image/jpeg', 'App\\Models\\Post', 7, 'main', '2018-08-24 12:16:19', '2018-08-24 12:16:19');
 
 -- --------------------------------------------------------
 
@@ -367,6 +405,17 @@ CREATE TABLE `posts` (
   `slug` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `posts`
+--
+
+INSERT INTO `posts` (`id`, `pub_date`, `post_type_id`, `category_id`, `is_published`, `created_by`, `updated_by`, `created_at`, `updated_at`, `slug`) VALUES
+(3, '2018-08-24 13:48:08', 1, 0, 1, 14, NULL, '2018-08-24 11:46:48', '2018-08-24 11:48:37', 'about-us'),
+(4, '2018-08-24 13:48:08', 1, 0, 1, 14, NULL, '2018-08-24 11:48:13', '2018-08-24 11:48:35', 'who-we-are'),
+(5, '2018-08-24 14:16:08', 2, 6, 1, 14, NULL, '2018-08-24 12:13:30', '2018-08-24 12:16:53', 'our-latest-project-1'),
+(6, '2018-08-24 14:16:08', 2, 6, 1, 14, NULL, '2018-08-24 12:15:21', '2018-08-24 12:16:52', 'our-latest-project-2'),
+(7, '2018-08-24 14:16:08', 2, 6, 1, 14, NULL, '2018-08-24 12:16:19', '2018-08-24 12:16:50', 'our-latest-project-3');
+
 -- --------------------------------------------------------
 
 --
@@ -394,6 +443,22 @@ CREATE TABLE `post_translations` (
   `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `body` text COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `post_translations`
+--
+
+INSERT INTO `post_translations` (`id`, `post_id`, `locale`, `title`, `body`) VALUES
+(3, 3, 'ar', 'من نحن', '<p>LOREM IPSUM IS SIMPLY DUMMY TEXT OF THE PRINTING AND TYPESETTING INDUSTRY</p>'),
+(4, 3, 'en', 'ABOUT US', '<p>LOREM IPSUM IS SIMPLY DUMMY TEXT OF THE PRINTING AND TYPESETTING INDUSTRY</p>'),
+(5, 4, 'ar', 'ماذا تعرف عنا', '<p>هناك العديد من الاختلافات في مقاطع لوريم إيبسوم المتاحة ، ولكن الغالبية عانت من تغيير في شكل ما ، أو عن طريق الحقن ، أو الكلمات العشوائية التي لا تبدو قابلة للتصديق بشكل طفيف. إذا كنت ستستخدم ممر لوريم إيبسوم ، فأنت بحاجة إلى التأكد من عدم وجود أي شيء محرج مخفي في منتصف النص.</p>\r\n\r\n<p> </p>'),
+(6, 4, 'en', 'WHO WE ARE', '<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text.</p>'),
+(7, 5, 'ar', 'مشروع رقم 1', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sagittis iaculis velit in tristique. Curabitur ac urna urna. Sed sollicitudin at nisi sed accumsan...</p>'),
+(8, 5, 'en', 'Our Latest Project 1', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sagittis iaculis velit in tristique. Curabitur ac urna urna. Sed sollicitudin at nisi sed accumsan...</p>'),
+(9, 6, 'ar', 'مشروع رقم 2', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sagittis iaculis velit in tristique. Curabitur ac urna urna. Sed sollicitudin at nisi sed accumsan...</p>'),
+(10, 6, 'en', 'Our Latest Project 2', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sagittis iaculis velit in tristique. Curabitur ac urna urna. Sed sollicitudin at nisi sed accumsan...</p>'),
+(11, 7, 'ar', 'مشروع رقم 3', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sagittis iaculis velit in tristique. Curabitur ac urna urna. Sed sollicitudin at nisi sed accumsan...</p>'),
+(12, 7, 'en', 'Our Latest Project 3', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sagittis iaculis velit in tristique. Curabitur ac urna urna. Sed sollicitudin at nisi sed accumsan...</p>');
 
 -- --------------------------------------------------------
 
@@ -3354,7 +3419,30 @@ INSERT INTO `visits` (`id`, `client_ip`, `client_country`, `client_city`, `model
 (2567, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-12 18:44:02', '2018-08-12 18:44:02'),
 (2568, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-12 18:44:42', '2018-08-12 18:44:42'),
 (2569, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-12 18:45:45', '2018-08-12 18:45:45'),
-(2570, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-12 18:47:25', '2018-08-12 18:47:25');
+(2570, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-12 18:47:25', '2018-08-12 18:47:25'),
+(2571, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-12 18:52:13', '2018-08-12 18:52:13'),
+(2572, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-24 10:22:43', '2018-08-24 10:22:43'),
+(2573, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-24 10:28:09', '2018-08-24 10:28:09'),
+(2574, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-24 10:29:41', '2018-08-24 10:29:41'),
+(2575, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-24 10:38:21', '2018-08-24 10:38:21'),
+(2576, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-24 11:10:14', '2018-08-24 11:10:14'),
+(2577, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-24 11:11:18', '2018-08-24 11:11:18'),
+(2578, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-24 11:11:42', '2018-08-24 11:11:42'),
+(2579, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-24 11:12:48', '2018-08-24 11:12:48'),
+(2580, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-24 11:14:13', '2018-08-24 11:14:13'),
+(2581, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-24 11:15:17', '2018-08-24 11:15:17'),
+(2582, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-24 11:16:03', '2018-08-24 11:16:03'),
+(2583, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-24 11:21:06', '2018-08-24 11:21:06'),
+(2584, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-24 11:28:12', '2018-08-24 11:28:12'),
+(2585, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-24 11:50:47', '2018-08-24 11:50:47');
+INSERT INTO `visits` (`id`, `client_ip`, `client_country`, `client_city`, `model_name`, `model_id`, `created_at`, `updated_at`) VALUES
+(2586, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-24 11:52:31', '2018-08-24 11:52:31'),
+(2587, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-24 11:54:45', '2018-08-24 11:54:45'),
+(2588, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-24 11:56:04', '2018-08-24 11:56:04'),
+(2589, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-24 12:00:25', '2018-08-24 12:00:25'),
+(2590, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-24 12:03:14', '2018-08-24 12:03:14'),
+(2591, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-24 12:05:30', '2018-08-24 12:05:30'),
+(2592, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-24 12:10:24', '2018-08-24 12:10:24');
 
 --
 -- Indexes for dumped tables
@@ -3517,7 +3605,7 @@ ALTER TABLE `visits`
 -- AUTO_INCREMENT for table `account_levels`
 --
 ALTER TABLE `account_levels`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `account_levels_sec_groups_relationship`
 --
@@ -3527,12 +3615,12 @@ ALTER TABLE `account_levels_sec_groups_relationship`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `category_translations`
 --
 ALTER TABLE `category_translations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `comments`
 --
@@ -3542,12 +3630,12 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `files`
 --
 ALTER TABLE `files`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `media_files`
 --
 ALTER TABLE `media_files`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `menus`
 --
@@ -3572,17 +3660,17 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `posts_tags_relationship`
 --
 ALTER TABLE `posts_tags_relationship`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `post_translations`
 --
 ALTER TABLE `post_translations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=191;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `post_types`
 --
@@ -3622,7 +3710,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `visits`
 --
 ALTER TABLE `visits`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2571;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2593;
 --
 -- Constraints for dumped tables
 --
