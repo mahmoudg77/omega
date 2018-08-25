@@ -121,31 +121,38 @@
 -->
     <!-- End What ew offer Area -->
 
-    <!-- Our Services Area -->
+    <!-- Our Services Area --> 
+    
+    @if($cat=\App\Models\Category::where('slug','services')->first())
+
     <section class="our_services_area">
         <div class="container">
             <div class="tittle wow fadeInUp">
                 <h2>Our Services</h2>
-                <h4>Lorem Ipsum is simply dummy text of the printing and typesetting industry</h4>
+                <h4>{!! str_limit($cat->description, 450,"") !!}</h4>
             </div>
             <div class="portfolio_inner_area">
                 <div class="portfolio_filter">
                     <ul>
                         <li data-filter="*" class="active"><a href=""> All</a></li>
-                        <li data-filter=".photography"><a href="">ARCHITECTURE</a></li>
-                        <li data-filter=".branding"><a href="">Building</a></li>
+                        @foreach($cat->Chields as $c)
+                        <li data-filter=".{{$c->slug}}"><a href="">{{$c->title}}</a></li>
+                        @endforeach
+                        <!-- <li data-filter=".branding"><a href="">Building</a></li>
                         <li data-filter=".webdesign"><a href="">CONSTRUCTION</a></li>
                         <li data-filter=".adversting"><a href="">DESIGN</a></li>
-                        <li data-filter=".painting"><a href="">Painting</a></li>
+                        <li data-filter=".painting"><a href="">Painting</a></li> -->
                     </ul>
                 </div>
                 <div class="portfolio_item">
                    <div class="grid-sizer"></div>
-                    <div class="single_facilities col-xs-4 p0 painting photography adversting">
+                   @foreach($cat->Chields as $c)
+                   @foreach($c->Posts()->orderBy('id','desc')->limit(5)->get() as $p)
+                    <div class="single_facilities col-xs-4 p0 {{$c->slug}}">
                        <div class="single_facilities_inner">
-                          	<img src="/images/gallery/sv-1.jpg" alt="">
+                          	<img src="{{$p->mainImage()}}" alt="">
                             <div class="gallery_hover">
-                                <h4>Construction</h4>
+                                <h4>{{$c->title}}</h4>
                                 <ul>
                                     <li><a href="#"><i class="fa fa-link" aria-hidden="true"></i></a></li>
                                     <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
@@ -153,7 +160,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="single_facilities col-xs-4 p0 webdesign">
+                    @endforeach
+                    @endforeach
+
+                    <!-- <div class="single_facilities col-xs-4 p0 webdesign">
                        <div class="single_facilities_inner">
                           	<img src="/images/gallery/sv-2.jpg" alt="">
                             <div class="gallery_hover">
@@ -212,11 +222,15 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
+
+
                 </div>
             </div>
         </div>
     </section>
+    @endif
+    
     <!-- End Our Services Area -->
 
     <!-- Our Team Area -->

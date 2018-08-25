@@ -18,8 +18,7 @@
                     <th>Title</th>
                     <th>Created Date</th>
                     <th>Publish Date</th>
-                    <th >Author</th>
-                    <th>File</th>
+                    <th >Category</th>
                     <th>Visits</th>
                     <th>Status</th>
                     <th></th>
@@ -121,8 +120,9 @@ $(function(){
                 { data: 'title', name: 'title' },
                 { data: 'created_at', name: 'created_at' },
                 { data: 'pub_date', name: 'pub_date' },
-                { data: 'creator', name: 'creator' },
-                { data: 'file', name: 'file',orderable: false, searchable: false },
+                // { data: 'creator', name: 'creator' },
+                { data: 'category', name: 'category' },
+                    // { data: 'file', name: 'file',orderable: false, searchable: false },
                 { data: 'visits', name: 'visits' },
                 { data: 'status', name: 'status' },
                 { data: 'action', name: 'action',orderable: false, searchable: false },

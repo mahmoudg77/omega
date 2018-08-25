@@ -276,15 +276,18 @@ class PostController extends IController
             ->addColumn('action', function ($post) {
                 return Func::actionLinks('posts',$post->id,"tr",["view"=>['class'=>"","target"=>"_blank",'href'=>"/".app()->getLocale()."/".$post->slug]]);
             })
-            ->addColumn('creator',function ($post) {
-                return $post->Creator->name;
+            ->addColumn('category',function ($post) {
+                return $post->Category->title;
             })
+            // ->addColumn('creator',function ($post) {
+            //     return $post->Creator->name;
+            // })
             ->addColumn('image',function ($post) {
                 return '<img src="'.$post->mainImage().'" class="img-responsive" width="100px"/>';
             })
-            ->addColumn('file',function ($post) {
-                return ($post->mainFile()? '<a href="/uploads/files/'.$post->mainFile().'">Download</a>':'');
-            })
+            // ->addColumn('file',function ($post) {
+            //     return ($post->mainFile()? '<a href="/uploads/files/'.$post->mainFile().'">Download</a>':'');
+            // })
             ->addColumn('visits',function ($post) {
                 return $post->Visits()->count();
             })
