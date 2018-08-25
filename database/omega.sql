@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 24, 2018 at 02:21 PM
+-- Generation Time: Aug 25, 2018 at 02:54 PM
 -- Server version: 5.7.14
 -- PHP Version: 7.0.10
 
@@ -93,7 +93,8 @@ INSERT INTO `categories` (`id`, `created_by`, `updated_by`, `parent_id`, `orderi
 (2, NULL, NULL, 1, 0, NULL, '2018-08-24 10:44:11', '2018-08-24 10:44:11', 'trading', 0),
 (3, NULL, NULL, 1, 0, NULL, '2018-08-24 10:45:06', '2018-08-24 10:45:06', 'lvp', 0),
 (4, NULL, NULL, 1, 0, NULL, '2018-08-24 10:45:58', '2018-08-24 10:45:58', 'contracting', 0),
-(6, NULL, NULL, NULL, 0, NULL, '2018-08-24 12:07:24', '2018-08-24 12:07:24', 'blog', 0);
+(6, NULL, NULL, NULL, 0, NULL, '2018-08-24 12:07:24', '2018-08-24 12:07:24', 'blog', 0),
+(7, NULL, NULL, NULL, 0, NULL, '2018-08-25 12:39:13', '2018-08-25 12:39:13', 'partners', 0);
 
 -- --------------------------------------------------------
 
@@ -123,7 +124,9 @@ INSERT INTO `category_translations` (`id`, `category_id`, `locale`, `title`, `de
 (7, 4, 'ar', 'مقاولات', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>'),
 (8, 4, 'en', 'Contracting', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>'),
 (11, 6, 'ar', 'أخبارنا', '<p>LOREM IPSUM IS SIMPLY DUMMY TEXT OF THE PRINTING AND TYPESETTING INDUSTRY</p>'),
-(12, 6, 'en', 'Blog', '<p>LOREM IPSUM IS SIMPLY DUMMY TEXT OF THE PRINTING AND TYPESETTING INDUSTRY</p>');
+(12, 6, 'en', 'Blog', '<p>LOREM IPSUM IS SIMPLY DUMMY TEXT OF THE PRINTING AND TYPESETTING INDUSTRY</p>'),
+(13, 7, 'ar', 'شركاؤنا', '<p>LOREM IPSUM IS SIMPLY DUMMY TEXT OF THE PRINTING AND TYPESETTING INDUSTRY</p>'),
+(14, 7, 'en', 'PARTNERS', '<p>LOREM IPSUM IS SIMPLY DUMMY TEXT OF THE PRINTING AND TYPESETTING INDUSTRY</p>');
 
 -- --------------------------------------------------------
 
@@ -3442,7 +3445,29 @@ INSERT INTO `visits` (`id`, `client_ip`, `client_country`, `client_city`, `model
 (2589, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-24 12:00:25', '2018-08-24 12:00:25'),
 (2590, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-24 12:03:14', '2018-08-24 12:03:14'),
 (2591, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-24 12:05:30', '2018-08-24 12:05:30'),
-(2592, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-24 12:10:24', '2018-08-24 12:10:24');
+(2592, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-24 12:10:24', '2018-08-24 12:10:24'),
+(2593, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-25 11:13:45', '2018-08-25 11:13:45'),
+(2594, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-25 11:17:05', '2018-08-25 11:17:05'),
+(2595, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-25 11:18:08', '2018-08-25 11:18:08'),
+(2596, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-25 11:43:16', '2018-08-25 11:43:16'),
+(2597, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-25 11:46:25', '2018-08-25 11:46:25'),
+(2598, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-25 11:46:49', '2018-08-25 11:46:49'),
+(2599, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-25 11:47:27', '2018-08-25 11:47:27'),
+(2600, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-25 12:03:12', '2018-08-25 12:03:12'),
+(2601, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-25 12:05:44', '2018-08-25 12:05:44'),
+(2602, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-25 12:06:23', '2018-08-25 12:06:23'),
+(2603, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-25 12:11:25', '2018-08-25 12:11:25'),
+(2604, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-25 12:12:52', '2018-08-25 12:12:52'),
+(2605, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Post', 5, '2018-08-25 12:13:08', '2018-08-25 12:13:08'),
+(2606, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-25 12:13:34', '2018-08-25 12:13:34'),
+(2607, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-25 12:14:24', '2018-08-25 12:14:24'),
+(2608, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-25 12:15:10', '2018-08-25 12:15:10'),
+(2609, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-25 12:15:31', '2018-08-25 12:15:31'),
+(2610, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-25 12:16:21', '2018-08-25 12:16:21'),
+(2611, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-25 12:16:41', '2018-08-25 12:16:41'),
+(2612, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-25 12:17:17', '2018-08-25 12:17:17'),
+(2613, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-25 12:19:38', '2018-08-25 12:19:38'),
+(2614, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-25 12:34:19', '2018-08-25 12:34:19');
 
 --
 -- Indexes for dumped tables
@@ -3615,12 +3640,12 @@ ALTER TABLE `account_levels_sec_groups_relationship`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `category_translations`
 --
 ALTER TABLE `category_translations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `comments`
 --
@@ -3710,7 +3735,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `visits`
 --
 ALTER TABLE `visits`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2593;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2615;
 --
 -- Constraints for dumped tables
 --
