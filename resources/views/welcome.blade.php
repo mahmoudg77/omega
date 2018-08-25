@@ -33,8 +33,8 @@
     <section class="professional_builder row">
         <div class="container">
            <div class="row builder_all">
-               @if (count($category)>0)
-               @foreach($category as $service)
+               @if (count($categoryServices)>0)
+               @foreach($categoryServices as $service)
                     <div class="col-md-4 col-sm-6 builder">
                         <i class="fa fa-thumbs-up" aria-hidden="true"></i>
                         <h4>{{$service->title}}</h4>
@@ -293,28 +293,22 @@
     <section class="latest_blog_area">
         <div class="container">
             <div class="tittle wow fadeInUp">
+                
                 <h2>Our Latest Blog</h2>
                 <h4>Lorem Ipsum is simply dummy text of the printing and typesetting industry</h4>
             </div>
             <div class="row latest_blog">
-                <div class="col-md-4 col-sm-6 blog_content">
-                    <img src="/images/blog/lb-1.jpg" alt="">
-                    <a href="#" class="blog_heading">Our Latest Project</a>
-                    <h4><small>by  </small><a href="#">Emran Khan</a><span>/</span><small>ON </small> October 15, 2016</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sagittis iaculis velit in tristique. Curabitur ac urna urna. Sed sollicitudin at nisi sed accumsan... <a href="#">Read More</a></p>
-                </div>
-                <div class="col-md-4 col-sm-6 blog_content">
-                    <img src="/images/blog/lb-2.jpg" alt="">
-                    <a href="#" class="blog_heading">Our Latest Project</a>
-                    <h4><small>by  </small><a href="#">Prodip Ghosh</a><span>/</span><small>ON </small> October 15, 2016</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sagittis iaculis velit in tristique. Curabitur ac urna urna. Sed sollicitudin at nisi sed accumsan... <a href="#">Read More</a></p>
-                </div>
-                <div class="col-md-4 col-sm-6 blog_content">
-                    <img src="/images/blog/lb-3.jpg" alt="">
-                    <a href="#" class="blog_heading">Our Latest Project</a>
-                    <h4><small>by  </small><a href="#">Prodip Ghosh</a><span>/</span><small>ON </small> October 15, 2016</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sagittis iaculis velit in tristique. Curabitur ac urna urna. Sed sollicitudin at nisi sed accumsan... <a href="#">Read More</a></p>
-                </div>
+                @if (count($postsByCat)>0)
+                @foreach($postsByCat as $post)
+                    <div class="col-md-4 col-sm-6 blog_content">
+                        <img src="{{$post->mainImage()}}" alt="">
+                        <a href="#" class="blog_heading">{{$post->title}}</a>
+                        <h4><small>by  </small>{{ $post->Creator!=null?$post->Creator->name:null }}
+                            <span>/</span><small>ON </small> {{ $post->created_at!=null?$post->created_at->toDateString():'' }}</h4>
+                        {!! str_limit($post->body, 200) !!} <p style="padding-top:10px;"><a href="{{route('getPostBySlug', $post->slug) }}">Read More</a></p>
+                    </div>
+                @endforeach
+                @endif
             </div>
         </div>
     </section>
