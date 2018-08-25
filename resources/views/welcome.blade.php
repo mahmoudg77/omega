@@ -302,7 +302,7 @@
                 @if (count($postsByCat)>0)
                 @foreach($postsByCat as $post)
                     <div class="col-md-4 col-sm-6 blog_content">
-                        <img src="{{$post->mainImage()}}" alt="">
+                        <img src="{{$post->mainImage()}}" alt="{{$post->title}}">
                         <a href="#" class="blog_heading">{{$post->title}}</a>
                         <h4><small>by  </small>{{ $post->Creator!=null?$post->Creator->name:null }}
                             <span>/</span><small>ON </small> {{ $post->created_at!=null?$post->created_at->toDateString():'' }}</h4>
@@ -323,11 +323,12 @@
                 <h4>Lorem Ipsum is simply dummy text of the printing and typesetting industry</h4>
             </div>
             <div class="partners">
-                <div class="item"><img src="/images/client_logo/client_logo-1.png" alt=""></div>
-                <div class="item"><img src="/images/client_logo/client_logo-2.png" alt=""></div>
-                <div class="item"><img src="/images/client_logo/client_logo-3.png" alt=""></div>
-                <div class="item"><img src="/images/client_logo/client_logo-4.png" alt=""></div>
-                <div class="item"><img src="/images/client_logo/client_logo-5.png" alt=""></div>
+                
+                @if (count($cateoryPartners)>0)
+                @foreach($cateoryPartners as $post)
+                    <div class="item"><img src="{{$post->mainImage()}}" alt="{{$post->title}}"></div>
+                @endforeach
+                @endif
             </div>
         </div>
         <div class="book_now_aera">
