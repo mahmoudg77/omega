@@ -36,7 +36,8 @@
                @if (count($categoryServices)>0)
                @foreach($categoryServices as $service)
                     <div class="col-md-4 col-sm-6 builder">
-                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                        <i class="fa {{$service->icon}}" aria-hidden="true"></i>
+                        <img src="{{$service->mainImage()}}"/>
                         <h4>{{$service->title}}</h4>
                         {!! $service->description !!}
                     </div>

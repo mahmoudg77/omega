@@ -11,7 +11,7 @@
 
     <div class="modal-body">
       <div class="row">
-      {!! Form::open(['method'=>'POST', 'route'=>["cp.category.store"]]) !!}
+      {!! Form::open(['method'=>'POST', 'route'=>["cp.category.store"],"enctype"=>"multipart/form-data","class"=>"ajax--form"]) !!}
       <ul class="nav nav-tabs">
         @foreach(config('translatable.locales') as $key)
         <li class="{{($key==app()->getLocale())?'active':''}}"><a data-toggle="tab" href="#data_{{$key}}">{{$key}}</a></li>
@@ -35,13 +35,26 @@
         @endforeach
 
       </div>
-
-
-        <div class="form-group col-sm-6">
-          {!! Form::label('Parent?') !!}
-          {!! Form::select('parent_id',
-                          App\Models\Category::where('parent_id',0)->orWhereNull('parent_id')->listsTranslations('title')->pluck('title','id'),null,['class'=>'form-control','placeholder'=>'Root']) !!}
-        </div>
+      <div class="form-group  col-sm-12">
+              <label class="control-label col-md-2">Image</label>
+              <div class="col-md-10">
+                  {{Form::file("image",['accept'=>'.jpg,.png,.gif,.jpeg'])}}
+              </div>
+          </div>
+          <div class="form-group  col-sm-12">
+                    <label class="control-label col-md-2">fa icon</label>
+                    <div class="col-md-10">
+                        {{Form::text("icon",null,array( 'class'=>'form-control', 'placeholder'=>'Icon class name ....'))}}
+                    </div>
+                </div>
+            
+        <div class="form-group  col-sm-12">
+        <label class="control-label col-md-2">Parent?</label>
+                  <div class="col-md-10">
+        {!! Form::select('parent_id',
+                        App\Models\Category::where('parent_id',0)->orWhereNull('parent_id')->listsTranslations('title')->pluck('title','id'),null,['class'=>'form-control','placeholder'=>'Root']) !!}
+              </div>
+      </div>
 
 
         <hr/>

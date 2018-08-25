@@ -5,8 +5,11 @@ namespace App\Http\Controllers\Dashboard;
 use Illuminate\Http\Request;
 use App\Http\Controllers\IController;
 use App\Models\Category as IModel;
+use App\Models\MediaFile;
+use App\Models\File;
 use Auth;
 use Func;
+
 class CategoryController extends IController
 {
   protected $viewFolder="dashboard.category";
@@ -56,6 +59,19 @@ class CategoryController extends IController
       $category['slug']=str_slug($category['en']['title'],'_');
       if(IModel::create($category)){
 
+        if($request->hasfile('image'))
+        {
+            $image=$request->file('image');
+            $imageobj=new MediaFile(['model'=>IModel::class,'id'=>$category->id,'tag'=>'main']);
+            $imageobj->upload($image);
+        }
+        if($request->hasfile('attach'))
+        {
+            $file=$request->file('attach');
+            $fileobj=new File(['model'=>IModel::class,'id'=>$category->id,'tag'=>'main']);
+            $fileobj->upload($file);
+        }
+
         return  Func::Success("Save Success",$category);
       }else{
         return  Func::Error("Error while save data !!");
@@ -71,6 +87,18 @@ class CategoryController extends IController
       //print_r($category);
 
       if(IModel::findOrFail($id)->update($category)){
+        if($request->hasfile('image'))
+        {
+            $image=$request->file('image');
+            $imageobj=new MediaFile(['model'=>IModel::class,'id'=>$id,'tag'=>'main']);
+            $imageobj->upload($image);
+        }
+        if($request->hasfile('attach'))
+        {
+            $file=$request->file('attach');
+            $fileobj=new File(['model'=>IModel::class,'id'=>$id,'tag'=>'main']);
+            $fileobj->upload($file);
+        }
         return  Func::Success("Save Success",$category);
       }else{
         return  Func::Error("Error while save data !!");

@@ -11,7 +11,7 @@
     <div class="panel-body">
         <h2 class="post-heading">Edit Category: <small>{{$data->title}}</small></h2>
       <div class="ro-w">
-        {!! Form::open(['method'=>'PATCH', 'route'=>["cp.category.update",$data->id]]) !!}
+        {!! Form::open(['method'=>'PATCH', 'route'=>["cp.category.update",$data->id],"enctype"=>"multipart/form-data","class"=>"ajax--form"]) !!}
         <ul class="nav nav-tabs">
           @foreach(config('translatable.locales') as $key)
           <li class="{{($key==app()->getLocale())?'active':''}}"><a data-toggle="tab" href="#data_{{$key}}">{{$key}}</a></li>
@@ -20,7 +20,7 @@
         <div class="tab-content">
           @foreach(config('translatable.locales') as $key)
           <div id="data_{{$key}}" class="tab-pane fade in {{($key==app()->getLocale())?'active':''}}">
-          <div class="form-group col-sm-6">
+          <div class="form-group col-sm-12">
             {!! Form::label('Title') !!}
             {!! Form::text($key.'[title]', ($data->translate($key)!=null?$data->translate($key)->title:null), array('required', 'class'=>'form-control', 'placeholder'=>'Ad new title ....')) !!}
           </div>
@@ -30,12 +30,27 @@
           </div>
         </div>
         @endforeach
-        <div class="form-group col-sm-6">
-          {!! Form::label('Parent?') !!}
+
+          <div class="form-group  col-sm-12">
+              <label class="control-label col-md-2">Image</label>
+              <div class="col-md-10">
+                  {{Form::file("image",['accept'=>'.jpg,.png,.gif,.jpeg'])}}
+              </div>
+          </div>
+          <div class="form-group  col-sm-12">
+                    <label class="control-label col-md-2">fa icon</label>
+                    <div class="col-md-10">
+                        {{Form::text("icon",$data->icon,array( 'class'=>'form-control', 'placeholder'=>'Icon class name ....'))}}
+                    </div>
+                </div>
+        <div class="form-group  col-sm-12">
+        <label class="control-label col-md-2">Parent?</label>
+          <div class="col-md-10">
           {!! Form::select('parent_id',
                           App\Models\Category::where('parent_id',0)->orWhereNull('parent_id')->listsTranslations('title')->pluck('title','id'),
                           ($data->Parent)?$data->Parent->id:null,
                           array('class'=>'form-control','placeholder'=>'Root')) !!}
+                          </div>
         </div>
 
 
