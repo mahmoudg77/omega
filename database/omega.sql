@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 26, 2018 at 09:41 PM
+-- Generation Time: Aug 26, 2018 at 10:34 PM
 -- Server version: 5.7.14
 -- PHP Version: 7.0.10
 
@@ -227,7 +227,9 @@ CREATE TABLE `menus` (
 INSERT INTO `menus` (`id`, `location`, `created_at`, `updated_at`, `name`) VALUES
 (1, 'main', '2018-05-02 05:53:20', '2018-05-07 06:45:52', 'Main Menu'),
 (2, 'footer', '2018-05-15 13:30:20', '2018-05-15 13:30:20', 'Footer Menu'),
-(3, 'header-social', '2018-05-26 00:59:19', '2018-05-26 01:09:49', 'Social');
+(3, 'header-social', '2018-05-26 00:59:19', '2018-05-26 01:09:49', 'Social'),
+(4, 'quick_links_footer', '2018-08-26 19:26:39', '2018-08-26 19:37:32', 'Quick links footer'),
+(5, 'social_links_footer', '2018-08-26 19:27:26', '2018-08-26 19:27:26', 'Social links footer');
 
 -- --------------------------------------------------------
 
@@ -265,7 +267,17 @@ INSERT INTO `menu_links` (`id`, `menu_id`, `customlink`, `category_id`, `parent_
 (25, 3, 'https://www.instagram.com/sf_ece/', NULL, NULL, 0, '2018-07-12 00:05:08', '2018-07-29 10:00:11', 0),
 (28, 1, NULL, 1, NULL, 1, '2018-08-12 18:45:37', '2018-08-26 18:35:48', 0),
 (29, 1, NULL, 6, NULL, 0, '2018-08-12 18:46:43', '2018-08-26 18:35:28', 0),
-(30, 1, '#', NULL, NULL, 0, '2018-08-12 18:47:12', '2018-08-12 18:47:12', 0);
+(30, 1, '#', NULL, NULL, 0, '2018-08-12 18:47:12', '2018-08-12 18:47:12', 0),
+(31, 5, 'https://facebook.com', NULL, NULL, 0, '2018-08-26 19:32:29', '2018-08-26 19:32:29', 0),
+(32, 5, 'https://twitter.com/', NULL, NULL, 0, '2018-08-26 19:33:06', '2018-08-26 19:33:06', 0),
+(33, 5, 'https://plus.google.com/', NULL, NULL, 0, '2018-08-26 19:33:46', '2018-08-26 19:33:46', 0),
+(34, 5, 'https://linkedin.com', NULL, NULL, 0, '2018-08-26 19:34:26', '2018-08-26 19:34:26', 0),
+(35, 4, '/#Building-Construction', NULL, NULL, 0, '2018-08-26 19:41:47', '2018-08-26 19:41:47', 0),
+(36, 4, '/#Home-Renovation', NULL, NULL, 0, '2018-08-26 19:42:16', '2018-08-26 19:42:16', 0),
+(37, 4, '/#Hardwood-Flooring', NULL, NULL, 0, '2018-08-26 19:42:45', '2018-08-26 19:42:45', 0),
+(38, 4, '/#Repairing-Of-Roof', NULL, NULL, 0, '2018-08-26 19:43:16', '2018-08-26 19:43:16', 0),
+(39, 4, '/#Commercial-Construction', NULL, NULL, 0, '2018-08-26 19:43:45', '2018-08-26 19:43:45', 0),
+(40, 4, '/#Concreate-Transport', NULL, NULL, 0, '2018-08-26 19:44:16', '2018-08-26 19:44:16', 0);
 
 -- --------------------------------------------------------
 
@@ -312,7 +324,27 @@ INSERT INTO `menu_link_translations` (`id`, `menu_link_id`, `locale`, `title`) V
 (57, 29, 'ar', 'الاخبار'),
 (58, 29, 'en', 'Blog'),
 (59, 30, 'ar', 'تواصل معنا'),
-(60, 30, 'en', 'Contact Us');
+(60, 30, 'en', 'Contact Us'),
+(61, 31, 'ar', '<i class="fa fa-facebook" aria-hidden="true"></i>'),
+(62, 31, 'en', '<i class="fa fa-facebook" aria-hidden="true"></i>'),
+(63, 32, 'ar', '<i class="fa fa-twitter" aria-hidden="true"></i>'),
+(64, 32, 'en', '<i class="fa fa-twitter" aria-hidden="true"></i>'),
+(65, 33, 'ar', '<i class="fa fa-google-plus" aria-hidden="true"></i>'),
+(66, 33, 'en', '<i class="fa fa-google-plus" aria-hidden="true"></i>'),
+(67, 34, 'ar', '<i class="fa fa-linkedin" aria-hidden="true"></i>'),
+(68, 34, 'en', '<i class="fa fa-linkedin" aria-hidden="true"></i>'),
+(69, 35, 'ar', '<i class="fa fa-chevron-right"></i> Building Construction'),
+(70, 35, 'en', '<i class="fa fa-chevron-right"></i> Building Construction'),
+(71, 36, 'ar', '<i class="fa fa-chevron-right"></i> Home Renovation'),
+(72, 36, 'en', '<i class="fa fa-chevron-right"></i> Home Renovation'),
+(73, 37, 'ar', '<i class="fa fa-chevron-right"></i> Hardwood Flooring'),
+(74, 37, 'en', '<i class="fa fa-chevron-right"></i> Hardwood Flooring'),
+(75, 38, 'ar', '<i class="fa fa-chevron-right"></i> Repairing Of Roof'),
+(76, 38, 'en', '<i class="fa fa-chevron-right"></i> Repairing Of Roof'),
+(77, 39, 'ar', '<i class="fa fa-chevron-right"></i> Commercial Construction'),
+(78, 39, 'en', '<i class="fa fa-chevron-right"></i> Commercial Construction'),
+(79, 40, 'ar', '<i class="fa fa-chevron-right"></i> Concreate Transport'),
+(80, 40, 'en', '<i class="fa fa-chevron-right"></i> Concreate Transport');
 
 -- --------------------------------------------------------
 
@@ -3582,7 +3614,14 @@ INSERT INTO `visits` (`id`, `client_ip`, `client_country`, `client_city`, `model
 (2691, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Category', 6, '2018-08-26 19:31:50', '2018-08-26 19:31:50'),
 (2692, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Category', 6, '2018-08-26 19:34:57', '2018-08-26 19:34:57'),
 (2693, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Post', 5, '2018-08-26 19:35:06', '2018-08-26 19:35:06'),
-(2694, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Post', 5, '2018-08-26 19:35:40', '2018-08-26 19:35:40');
+(2694, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Post', 5, '2018-08-26 19:35:40', '2018-08-26 19:35:40'),
+(2695, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-26 20:29:48', '2018-08-26 20:29:48'),
+(2696, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Category', 6, '2018-08-26 20:31:15', '2018-08-26 20:31:15'),
+(2697, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Post', 7, '2018-08-26 20:31:42', '2018-08-26 20:31:42'),
+(2698, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Category', 2, '2018-08-26 20:32:17', '2018-08-26 20:32:17'),
+(2699, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Category', 3, '2018-08-26 20:32:36', '2018-08-26 20:32:36'),
+(2700, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-26 20:32:57', '2018-08-26 20:32:57'),
+(2701, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-26 20:34:04', '2018-08-26 20:34:04');
 
 --
 -- Indexes for dumped tables
@@ -3780,17 +3819,17 @@ ALTER TABLE `media_files`
 -- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `menu_links`
 --
 ALTER TABLE `menu_links`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 --
 -- AUTO_INCREMENT for table `menu_link_translations`
 --
 ALTER TABLE `menu_link_translations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 --
 -- AUTO_INCREMENT for table `migrations`
 --
@@ -3850,7 +3889,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `visits`
 --
 ALTER TABLE `visits`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2695;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2702;
 --
 -- Constraints for dumped tables
 --
