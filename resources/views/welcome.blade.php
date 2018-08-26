@@ -33,17 +33,15 @@
     <section class="professional_builder row">
         <div class="container">
            <div class="row builder_all">
-               @if (count($categoryServices)>0)
-               @foreach($categoryServices as $service)
+               @if($cat=\App\Models\Category::where('slug','services')->first())
+                @foreach($cat->Chields as $c)
                     <div class="col-md-4 col-sm-6 builder">
-                        <i class="fa {{$service->icon}}" aria-hidden="true"></i>
-                        <img src="{{$service->mainImage()}}"/>
-                        <h4>{{$service->title}}</h4>
-                        {!! $service->description !!}
+                        <i class="fa {{$c->icon}}" aria-hidden="true"></i>
+                        <h4>{{$c->title}}</h4>
+                        {!! $c->description !!}
                     </div>
-               @endforeach
+                @endforeach
                @endif
-                
            </div>
         </div>
     </section>
@@ -122,9 +120,7 @@
     <!-- End What ew offer Area -->
 
     <!-- Our Services Area --> 
-    
     @if($cat=\App\Models\Category::where('slug','services')->first())
-
     <section class="our_services_area">
         <div class="container">
             <div class="tittle wow fadeInUp">
@@ -147,12 +143,12 @@
                 <div class="portfolio_item">
                    <div class="grid-sizer"></div>
                    @foreach($cat->Chields as $c)
-                   @foreach($c->Posts()->orderBy('id','desc')->limit(5)->get() as $p)
+                   @foreach($c->Posts()->orderBy('id','desc')->limit(6)->get() as $p)
                     <div class="single_facilities col-xs-4 p0 {{$c->slug}}">
                        <div class="single_facilities_inner">
-                          	<img src="{{$p->mainImage()}}" alt="">
+                          	<img src="{{$p->mainImage()}}" alt="{{$p->title}}" class="img-responsive center-block" style="height: 380px;width: 100%;">
                             <div class="gallery_hover">
-                                <h4>{{$c->title}}</h4>
+                                <h4>{{$p->title}}</h4>
                                 <ul>
                                     <li><a href="#"><i class="fa fa-link" aria-hidden="true"></i></a></li>
                                     <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
@@ -162,69 +158,6 @@
                     </div>
                     @endforeach
                     @endforeach
-
-                    <!-- <div class="single_facilities col-xs-4 p0 webdesign">
-                       <div class="single_facilities_inner">
-                          	<img src="/images/gallery/sv-2.jpg" alt="">
-                            <div class="gallery_hover">
-                                <h4>Construction</h4>
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-link" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single_facilities col-xs-4 painting p0 photography branding">
-                       <div class="single_facilities_inner">
-                          	<img src="/images/gallery/sv-3.jpg" alt="">
-                            <div class="gallery_hover">
-                                <h4>Construction</h4>
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-link" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single_facilities col-xs-4 p0 adversting webdesign adversting">
-                       <div class="single_facilities_inner">
-                          	<img src="/images/gallery/sv-4.jpg" alt="">
-                            <div class="gallery_hover">
-                                <h4>Construction</h4>
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-link" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single_facilities col-xs-4 p0 painting adversting branding">
-                       <div class="single_facilities_inner">
-                          	<img src="/images/gallery/sv-5.jpg" alt="">
-                            <div class="gallery_hover">
-                                <h4>Construction</h4>
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-link" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single_facilities col-xs-4 p0 webdesign photography magazine adversting">
-                       <div class="single_facilities_inner">
-                          	<img src="/images/gallery/sv-6.jpg" alt="">
-                            <div class="gallery_hover">
-                                <h4>Construction</h4>
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-link" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div> -->
-
-
                 </div>
             </div>
         </div>
@@ -233,88 +166,16 @@
     
     <!-- End Our Services Area -->
 
-    <!-- Our Team Area -->
-<!--
-    <section class="our_team_area">
-        <div class="container">
-            <div class="tittle wow fadeInUp">
-                <h2>Our Team</h2>
-                <h4>Lorem Ipsum is simply dummy text of the printing and typesetting industry</h4>
-            </div>
-            <div class="row team_row">
-                <div class="col-md-3 col-sm-6 wow fadeInUp">
-                   <div class="team_membar">
-                        <img src="/images/team/tm-1.jpg" alt="">
-                        <div class="team_content">
-                            <ul>
-                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                            </ul>
-                            <a href="#" class="name">Prodip Ghosh</a>
-                            <h6>Founder &amp; CEO</h6>
-                        </div>
-                   </div>
-                </div>
-                <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0.2s">
-                   <div class="team_membar">
-                        <img src="/images/team/tm-2.jpg" alt="">
-                        <div class="team_content">
-                            <ul>
-                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                            </ul>
-                            <a href="#" class="name">Emran Khan</a>
-                            <h6>Web-Developer</h6>
-                        </div>
-                   </div>
-                </div>
-                <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                   <div class="team_membar">
-                        <img src="/images/team/tm-3.jpg" alt="">
-                        <div class="team_content">
-                            <ul>
-                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                            </ul>
-                            <a href="#" class="name">Prodip Ghosh</a>
-                            <h6>Founder &amp; CEO</h6>
-                        </div>
-                   </div>
-                </div>
-                <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0.4s">
-                   <div class="team_membar">
-                        <img src="/images/team/tm-4.jpg" alt="">
-                        <div class="team_content">
-                            <ul>
-                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                            </ul>
-                            <a href="#" class="name">Jakaria Khan</a>
-                            <h6>Founder &amp; CEO</h6>
-                        </div>
-                   </div>
-                </div>
-            </div>
-        </div>
-    </section>
--->
-    <!-- End Our Team Area -->
-
     <!-- Our Latest Blog Area -->
     <section class="latest_blog_area">
         <div class="container">
-            <div class="tittle wow fadeInUp">
-                
-                <h2>Our Latest Blog</h2>
-                <h4>Lorem Ipsum is simply dummy text of the printing and typesetting industry</h4>
-            </div>
-            <div class="row latest_blog">
-                @if (count($postsByCat)>0)
-                @foreach($postsByCat as $post)
+            @if($cat=\App\Models\Category::where('slug','blog')->first())
+                <div class="tittle wow fadeInUp">
+                    <h2>Our Latest {{ $cat->title }}</h2>
+                    <h4>{!! str_limit($cat->description, 450,"") !!}</h4>
+                </div>
+                <div class="row latest_blog">
+                    @foreach($cat->Posts()->orderBy('id','asc')->limit(3)->get() as $post)
                     <div class="col-md-4 col-sm-6 blog_content">
                         <img src="{{$post->mainImage()}}" alt="{{$post->title}}">
                         <a href="#" class="blog_heading">{{$post->title}}</a>
@@ -322,9 +183,9 @@
                             <span>/</span><small>ON </small> {{ $post->created_at!=null?$post->created_at->toDateString():'' }}</h4>
                         {!! str_limit($post->body, 200) !!} <p style="padding-top:10px;"><a href="{{route('getPostBySlug', $post->slug) }}">Read More</a></p>
                     </div>
-                @endforeach
-                @endif
-            </div>
+                    @endforeach
+                </div>
+            @endif
         </div>
     </section>
     <!-- End Our Latest Blog Area -->
@@ -332,18 +193,17 @@
     <!-- Our Partners Area -->
     <section class="our_partners_area">
         <div class="container">
+        @if($cat=\App\Models\Category::where('slug','Partners')->first())
             <div class="tittle wow fadeInUp">
-                <h2>Our Partners</h2>
-                <h4>Lorem Ipsum is simply dummy text of the printing and typesetting industry</h4>
+                <h2>Our {{ $cat->title }}</h2>
+                <h4>{!! str_limit($cat->description, 450,"") !!}</h4>
             </div>
             <div class="partners">
-                
-                @if (count($cateoryPartners)>0)
-                @foreach($cateoryPartners as $post)
-                    <div class="item"><img src="{{$post->mainImage()}}" alt="{{$post->title}}"></div>
+                @foreach($cat->Posts()->orderBy('id','desc')->limit(10)->get() as $post)
+                <div class="item"><img src="{{$post->mainImage()}}" alt="{{$post->title}}"></div>
                 @endforeach
-                @endif
             </div>
+        @endif
         </div>
         <div class="book_now_aera">
             <div class="container">

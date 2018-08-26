@@ -206,11 +206,6 @@ class Functions
         return \App\Models\Post::where('slug', $slug)->first();
     }
     
-//    public static function getPostsByCat($catName){
-//        
-//        return \App\Models\Post::where('slug', $slug)->get();
-//    }
-
     public static function getFreeSlug($class,$title){
         //$title=\request()->get('title');
         $c_slug=str_slug($title);
