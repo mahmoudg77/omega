@@ -26,18 +26,18 @@
                     @foreach($allPostsByCat as $post)
                         <div class="blog_content">
                         <a href="{{route('getPostBySlug', $post->slug) }}" style="text-decoration:none">
-                            <h3 class="blog_heading" style="padding-bottom: 20px;">{{ $post->title }}</h3>
+                            <h3 class="blog_heading" style="padding-bottom: 10px;">{{ $post->title }}</h3>
                         </a>
-                        <div class="blog_admin" style="padding-bottom:0px;">
+                        <div class="blog_admin" style="padding-bottom:0px;margin:0 10px;">
                             <span>
                                 <i class="fa fa-user"></i> {{ $post->Creator!=null?$post->Creator->name:null }}
                             </span>
                             <span class="tags" style="padding:0 10px;"><i class="fa fa-tags"></i> {!! Func::tagLinks($post->strTags())!!}</span>
                             <span><i class="fa fa-calendar"></i> {{ $post->created_at!=null?$post->created_at->toDateString():'' }}</span>
                         </div>
-                        <hr/>
+                        <hr style="margin-bottom: 5px;margin-top: 5px;"/>
 
-                        <div class="row cat-content-body">
+                        <div class="cat-content-body" style="background-color:#eee;padding:10px;">
                             <div class="col-sm-6">
                                 <a href="{{route('getPostBySlug', $post->slug) }}" style="text-decoration:none">
                                 <img src="{{$post->mainImage()}}" class="media-object" style="width:100%;height: 200px;">
@@ -64,64 +64,23 @@
                 </div>
                 </div>
                 <div class="col-sm-4 widget_area">
-                    <div class="resent">
-                        <h3>RECENT POSTS</h3>
-                        <div class="media">
-                            <div class="media-left">
-                                <a href="#">
-                                    <img class="media-object" src="images/blog/rs-1.jpg" alt="">
-                                </a>
+                    <div class="resent" style="padding-bottom: 40px;">
+                        <h3 class="text-uppercase">{{trans('app.last articles')}}</h3>
+                        @foreach($lastPosts as $lastpost)
+                            <div class="media">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img class="media-object" src="{{$lastpost->mainImage()}}" alt="{{ $lastpost->title}}" style="width:70px;">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <a href="#">{!! str_limit($post->body, 70) !!}</a>
+                                    <h6>Oct 19, 2016</h6>
+                                </div>
                             </div>
-                            <div class="media-body">
-                                <a href="">Get informed about construction industry trends &amp; development.</a>
-                                <h6>Oct 19, 2016</h6>
-                            </div>
-                        </div>
-                        <div class="media">
-                            <div class="media-left">
-                                <a href="#">
-                                    <img class="media-object" src="images/blog/rs-2.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="media-body">
-                                <a href="">Get informed about construction industry trends &amp; development.</a>
-                                <h6>Oct 19, 2016</h6>
-                            </div>
-                        </div>
-                        <div class="media">
-                            <div class="media-left">
-                                <a href="#">
-                                    <img class="media-object" src="images/blog/rs-3.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="media-body">
-                                <a href="">Get informed about construction industry trends &amp; development.</a>
-                                <h6>Oct 19, 2016</h6>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
-                    <div class="resent">
-                        <h3>CATEGORIES</h3>
-                        <ul class="architecture">
-                            <li><a href="#"><i class="fa fa-arrow-right" aria-hidden="true"></i>Construction</a></li>
-                            <li><a href="#"><i class="fa fa-arrow-right" aria-hidden="true"></i>Architecture</a></li>
-                            <li><a href="#"><i class="fa fa-arrow-right" aria-hidden="true"></i>Building</a></li>
-                            <li><a href="#"><i class="fa fa-arrow-right" aria-hidden="true"></i>Design</a></li>
-                        </ul>
-                    </div>
-<!--
-                    <div class="resent">
-                        <h3>ARCHIVES</h3>
-                        <ul class="architecture">
-                            <li><a href="#"><i class="fa fa-arrow-right" aria-hidden="true"></i>February 2016</a></li>
-                            <li><a href="#"><i class="fa fa-arrow-right" aria-hidden="true"></i>April 2016</a></li>
-                            <li><a href="#"><i class="fa fa-arrow-right" aria-hidden="true"></i>June 2016</a></li>
-                        </ul>
-                    </div>
-                    <div class="search">
-                        <input type="search" name="search" class="form-control" placeholder="Search">
-                    </div>
--->
+                    
                     <div class="resent">
                         <h3>Tag</h3>
                         <ul class="tag">
@@ -133,6 +92,7 @@
                             <li><a href="#">Design</a></li>
                         </ul>
                     </div>
+                    
                 </div>
             </div>
         </div>
