@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 25, 2018 at 05:21 PM
+-- Generation Time: Aug 26, 2018 at 10:34 PM
 -- Server version: 5.7.14
 -- PHP Version: 7.0.10
 
@@ -92,10 +92,10 @@ CREATE TABLE `categories` (
 INSERT INTO `categories` (`id`, `created_by`, `updated_by`, `parent_id`, `ordering`, `deleted_at`, `created_at`, `updated_at`, `slug`, `sort`, `icon`) VALUES
 (1, NULL, NULL, NULL, 0, NULL, '2018-08-24 10:41:02', '2018-08-24 10:41:02', 'services', 0, ''),
 (2, NULL, NULL, 1, 0, NULL, '2018-08-24 10:44:11', '2018-08-25 13:31:29', 'trading', 0, 'fa-thumbs-up'),
-(3, NULL, NULL, 1, 0, NULL, '2018-08-24 10:45:06', '2018-08-24 10:45:06', 'lvp', 0, ''),
-(4, NULL, NULL, 1, 0, NULL, '2018-08-24 10:45:58', '2018-08-24 10:45:58', 'contracting', 0, ''),
+(3, NULL, NULL, 1, 0, NULL, '2018-08-24 10:45:06', '2018-08-26 17:53:59', 'lvp', 0, 'fa fa-thumbs-up'),
+(4, NULL, NULL, 1, 0, NULL, '2018-08-24 10:45:58', '2018-08-26 17:54:19', 'contracting', 0, 'fa fa-thumbs-up'),
 (6, NULL, NULL, NULL, 0, NULL, '2018-08-24 12:07:24', '2018-08-24 12:07:24', 'blog', 0, ''),
-(7, NULL, NULL, NULL, 0, NULL, '2018-08-25 12:39:13', '2018-08-25 12:39:13', 'partners', 0, '');
+(7, NULL, NULL, NULL, 0, NULL, '2018-08-25 12:39:13', '2018-08-26 18:23:01', 'partners', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -127,7 +127,7 @@ INSERT INTO `category_translations` (`id`, `category_id`, `locale`, `title`, `de
 (11, 6, 'ar', 'أخبارنا', '<p>LOREM IPSUM IS SIMPLY DUMMY TEXT OF THE PRINTING AND TYPESETTING INDUSTRY</p>'),
 (12, 6, 'en', 'Blog', '<p>LOREM IPSUM IS SIMPLY DUMMY TEXT OF THE PRINTING AND TYPESETTING INDUSTRY</p>'),
 (13, 7, 'ar', 'شركاؤنا', '<p>LOREM IPSUM IS SIMPLY DUMMY TEXT OF THE PRINTING AND TYPESETTING INDUSTRY</p>'),
-(14, 7, 'en', 'PARTNERS', '<p>LOREM IPSUM IS SIMPLY DUMMY TEXT OF THE PRINTING AND TYPESETTING INDUSTRY</p>');
+(14, 7, 'en', 'Partners', '<p>LOREM IPSUM IS SIMPLY DUMMY TEXT OF THE PRINTING AND TYPESETTING INDUSTRY</p>');
 
 -- --------------------------------------------------------
 
@@ -199,7 +199,12 @@ INSERT INTO `media_files` (`id`, `name`, `size`, `media_type`, `model_name`, `mo
 (9, '44870_construction-2.jpg', 32865, 'image/jpeg', 'App\\Models\\Post', 10, 'main', '2018-08-25 15:18:29', '2018-08-25 15:18:29'),
 (10, '060f5_sv-5.jpg', 57535, 'image/jpeg', 'App\\Models\\Post', 9, 'main', '2018-08-25 15:19:37', '2018-08-25 15:19:37'),
 (11, '844fb_sv-2.jpg', 46967, 'image/jpeg', 'App\\Models\\Post', 10, 'main', '2018-08-25 15:20:13', '2018-08-25 15:20:13'),
-(12, '364fb_sv-3.jpg', 42816, 'image/jpeg', 'App\\Models\\Post', 8, 'main', '2018-08-25 15:20:42', '2018-08-25 15:20:42');
+(12, '364fb_sv-3.jpg', 42816, 'image/jpeg', 'App\\Models\\Post', 8, 'main', '2018-08-25 15:20:42', '2018-08-25 15:20:42'),
+(13, 'fbe33_client_logo-1.png', 6144, 'image/png', 'App\\Models\\Post', 12, 'main', '2018-08-26 18:32:00', '2018-08-26 18:32:00'),
+(14, 'bfb65_client_logo-4.png', 7347, 'image/png', 'App\\Models\\Post', 13, 'main', '2018-08-26 18:32:33', '2018-08-26 18:32:33'),
+(15, '4e2bd_client_logo-5.png', 5689, 'image/png', 'App\\Models\\Post', 14, 'main', '2018-08-26 18:33:07', '2018-08-26 18:33:07'),
+(16, 'a1676_about-us.jpg', 77710, 'image/jpeg', 'App\\Models\\Post', 15, 'main', '2018-08-26 19:23:03', '2018-08-26 19:23:03'),
+(17, '81111_about_client.jpg', 44441, 'image/jpeg', 'App\\Models\\Post', 15, 'main', '2018-08-26 19:24:49', '2018-08-26 19:24:49');
 
 -- --------------------------------------------------------
 
@@ -222,7 +227,9 @@ CREATE TABLE `menus` (
 INSERT INTO `menus` (`id`, `location`, `created_at`, `updated_at`, `name`) VALUES
 (1, 'main', '2018-05-02 05:53:20', '2018-05-07 06:45:52', 'Main Menu'),
 (2, 'footer', '2018-05-15 13:30:20', '2018-05-15 13:30:20', 'Footer Menu'),
-(3, 'header-social', '2018-05-26 00:59:19', '2018-05-26 01:09:49', 'Social');
+(3, 'header-social', '2018-05-26 00:59:19', '2018-05-26 01:09:49', 'Social'),
+(4, 'quick_links_footer', '2018-08-26 19:26:39', '2018-08-26 19:37:32', 'Quick links footer'),
+(5, 'social_links_footer', '2018-08-26 19:27:26', '2018-08-26 19:27:26', 'Social links footer');
 
 -- --------------------------------------------------------
 
@@ -258,9 +265,19 @@ INSERT INTO `menu_links` (`id`, `menu_id`, `customlink`, `category_id`, `parent_
 (22, 3, 'https://youtube.com', NULL, NULL, 0, '2018-05-26 01:13:25', '2018-05-26 01:13:25', 0),
 (24, 3, 'https://www.linkedin.com/in/%D8%A7%D9%84%D9%85%D8%A4%D8%B3%D8%B3%D8%A9-%D8%A7%D9%84%D8%B9%D9%84%D9%85%D9%8A%D8%A9-%D9%84%D8%AA%D8%B1%D8%A8%D9%8A%D8%A9-%D8%A7%D9%84%D8%B7%D9%81%D9%88%D9%84%D8%A9-9545b5166/', NULL, NULL, 0, '2018-07-12 00:03:30', '2018-07-12 00:03:30', 0),
 (25, 3, 'https://www.instagram.com/sf_ece/', NULL, NULL, 0, '2018-07-12 00:05:08', '2018-07-29 10:00:11', 0),
-(28, 1, '#', NULL, NULL, 0, '2018-08-12 18:45:37', '2018-08-12 18:45:37', 0),
-(29, 1, '#', NULL, NULL, 0, '2018-08-12 18:46:43', '2018-08-12 18:46:43', 0),
-(30, 1, '#', NULL, NULL, 0, '2018-08-12 18:47:12', '2018-08-12 18:47:12', 0);
+(28, 1, NULL, 1, NULL, 1, '2018-08-12 18:45:37', '2018-08-26 18:35:48', 0),
+(29, 1, NULL, 6, NULL, 0, '2018-08-12 18:46:43', '2018-08-26 18:35:28', 0),
+(30, 1, '#', NULL, NULL, 0, '2018-08-12 18:47:12', '2018-08-12 18:47:12', 0),
+(31, 5, 'https://facebook.com', NULL, NULL, 0, '2018-08-26 19:32:29', '2018-08-26 19:32:29', 0),
+(32, 5, 'https://twitter.com/', NULL, NULL, 0, '2018-08-26 19:33:06', '2018-08-26 19:33:06', 0),
+(33, 5, 'https://plus.google.com/', NULL, NULL, 0, '2018-08-26 19:33:46', '2018-08-26 19:33:46', 0),
+(34, 5, 'https://linkedin.com', NULL, NULL, 0, '2018-08-26 19:34:26', '2018-08-26 19:34:26', 0),
+(35, 4, '/#Building-Construction', NULL, NULL, 0, '2018-08-26 19:41:47', '2018-08-26 19:41:47', 0),
+(36, 4, '/#Home-Renovation', NULL, NULL, 0, '2018-08-26 19:42:16', '2018-08-26 19:42:16', 0),
+(37, 4, '/#Hardwood-Flooring', NULL, NULL, 0, '2018-08-26 19:42:45', '2018-08-26 19:42:45', 0),
+(38, 4, '/#Repairing-Of-Roof', NULL, NULL, 0, '2018-08-26 19:43:16', '2018-08-26 19:43:16', 0),
+(39, 4, '/#Commercial-Construction', NULL, NULL, 0, '2018-08-26 19:43:45', '2018-08-26 19:43:45', 0),
+(40, 4, '/#Concreate-Transport', NULL, NULL, 0, '2018-08-26 19:44:16', '2018-08-26 19:44:16', 0);
 
 -- --------------------------------------------------------
 
@@ -307,7 +324,27 @@ INSERT INTO `menu_link_translations` (`id`, `menu_link_id`, `locale`, `title`) V
 (57, 29, 'ar', 'الاخبار'),
 (58, 29, 'en', 'Blog'),
 (59, 30, 'ar', 'تواصل معنا'),
-(60, 30, 'en', 'Contact Us');
+(60, 30, 'en', 'Contact Us'),
+(61, 31, 'ar', '<i class="fa fa-facebook" aria-hidden="true"></i>'),
+(62, 31, 'en', '<i class="fa fa-facebook" aria-hidden="true"></i>'),
+(63, 32, 'ar', '<i class="fa fa-twitter" aria-hidden="true"></i>'),
+(64, 32, 'en', '<i class="fa fa-twitter" aria-hidden="true"></i>'),
+(65, 33, 'ar', '<i class="fa fa-google-plus" aria-hidden="true"></i>'),
+(66, 33, 'en', '<i class="fa fa-google-plus" aria-hidden="true"></i>'),
+(67, 34, 'ar', '<i class="fa fa-linkedin" aria-hidden="true"></i>'),
+(68, 34, 'en', '<i class="fa fa-linkedin" aria-hidden="true"></i>'),
+(69, 35, 'ar', '<i class="fa fa-chevron-right"></i> Building Construction'),
+(70, 35, 'en', '<i class="fa fa-chevron-right"></i> Building Construction'),
+(71, 36, 'ar', '<i class="fa fa-chevron-right"></i> Home Renovation'),
+(72, 36, 'en', '<i class="fa fa-chevron-right"></i> Home Renovation'),
+(73, 37, 'ar', '<i class="fa fa-chevron-right"></i> Hardwood Flooring'),
+(74, 37, 'en', '<i class="fa fa-chevron-right"></i> Hardwood Flooring'),
+(75, 38, 'ar', '<i class="fa fa-chevron-right"></i> Repairing Of Roof'),
+(76, 38, 'en', '<i class="fa fa-chevron-right"></i> Repairing Of Roof'),
+(77, 39, 'ar', '<i class="fa fa-chevron-right"></i> Commercial Construction'),
+(78, 39, 'en', '<i class="fa fa-chevron-right"></i> Commercial Construction'),
+(79, 40, 'ar', '<i class="fa fa-chevron-right"></i> Concreate Transport'),
+(80, 40, 'en', '<i class="fa fa-chevron-right"></i> Concreate Transport');
 
 -- --------------------------------------------------------
 
@@ -427,9 +464,13 @@ INSERT INTO `posts` (`id`, `pub_date`, `post_type_id`, `category_id`, `is_publis
 (5, '2018-08-24 14:16:08', 2, 6, 1, 14, NULL, '2018-08-24 12:13:30', '2018-08-24 12:16:53', 'our-latest-project-1'),
 (6, '2018-08-24 14:16:08', 2, 6, 1, 14, NULL, '2018-08-24 12:15:21', '2018-08-24 12:16:52', 'our-latest-project-2'),
 (7, '2018-08-24 14:16:08', 2, 6, 1, 14, NULL, '2018-08-24 12:16:19', '2018-08-24 12:16:50', 'our-latest-project-3'),
-(8, NULL, 2, 2, NULL, 14, NULL, '2018-08-25 15:12:26', '2018-08-25 15:17:06', 'trading-post-1'),
-(9, NULL, 2, 3, NULL, 14, NULL, '2018-08-25 15:13:06', '2018-08-25 15:16:14', 'lvp-post-1'),
-(10, NULL, 2, 4, NULL, 14, NULL, '2018-08-25 15:18:29', '2018-08-25 15:18:29', 'contracting-post-1');
+(8, '2018-08-26 20:30:08', 2, 2, 1, 14, NULL, '2018-08-25 15:12:26', '2018-08-26 18:30:44', 'trading-post-1'),
+(9, '2018-08-26 20:30:08', 2, 3, 1, 14, NULL, '2018-08-25 15:13:06', '2018-08-26 18:30:45', 'lvp-post-1'),
+(10, '2018-08-26 20:30:08', 2, 4, 1, 14, NULL, '2018-08-25 15:18:29', '2018-08-26 18:30:46', 'contracting-post-1'),
+(12, '2018-08-26 20:33:08', 2, 7, 1, 14, NULL, '2018-08-26 18:31:59', '2018-08-26 18:33:19', 'partner-post-1'),
+(13, '2018-08-26 20:33:08', 2, 7, 1, 14, NULL, '2018-08-26 18:32:33', '2018-08-26 18:33:18', 'partner-post-2'),
+(14, '2018-08-26 20:33:08', 2, 7, 1, 14, NULL, '2018-08-26 18:33:07', '2018-08-26 18:33:17', 'partner-post-3'),
+(15, '2018-08-26 21:23:08', 2, 2, 1, 14, NULL, '2018-08-26 19:23:03', '2018-08-26 19:23:12', 'trading-post-2');
 
 -- --------------------------------------------------------
 
@@ -479,7 +520,15 @@ INSERT INTO `post_translations` (`id`, `post_id`, `locale`, `title`, `body`) VAL
 (15, 9, 'ar', 'LVP Post 1', '<p>LVP Post 1</p>'),
 (16, 9, 'en', 'LVP Post 1', '<p>LVP Post 1</p>'),
 (17, 10, 'ar', 'Contracting post 1', '<p>Contracting post 1</p>'),
-(18, 10, 'en', 'Contracting post 1', '<p>Contracting post 1</p>');
+(18, 10, 'en', 'Contracting post 1', '<p>Contracting post 1</p>'),
+(19, 12, 'ar', 'Partner post 1', '<p>Partner post 1</p>'),
+(20, 12, 'en', 'Partner post 1', '<p>Partner post 1</p>'),
+(21, 13, 'ar', 'Partner post 2', '<p>Partner post 2</p>'),
+(22, 13, 'en', 'Partner post 2', '<p>Partner post 2</p>'),
+(23, 14, 'ar', 'Partner post 3', '<p>Partner post 3</p>'),
+(24, 14, 'en', 'Partner post 3', '<p>Partner post 3</p>'),
+(25, 15, 'ar', 'Trading post 2', '<p>Trading post 2</p>'),
+(26, 15, 'en', 'Trading post 2', '<p>Trading post 2</p>');
 
 -- --------------------------------------------------------
 
@@ -3521,7 +3570,58 @@ INSERT INTO `visits` (`id`, `client_ip`, `client_country`, `client_city`, `model
 (2647, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-25 15:14:44', '2018-08-25 15:14:44'),
 (2648, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-25 15:18:33', '2018-08-25 15:18:33'),
 (2649, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-25 15:19:40', '2018-08-25 15:19:40'),
-(2650, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-25 15:20:47', '2018-08-25 15:20:47');
+(2650, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-25 15:20:47', '2018-08-25 15:20:47'),
+(2651, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-26 17:52:54', '2018-08-26 17:52:54'),
+(2652, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-26 17:54:27', '2018-08-26 17:54:27'),
+(2653, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-26 18:00:27', '2018-08-26 18:00:27'),
+(2654, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-26 18:00:49', '2018-08-26 18:00:49'),
+(2655, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-26 18:09:28', '2018-08-26 18:09:28'),
+(2656, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-26 18:10:17', '2018-08-26 18:10:17'),
+(2657, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-26 18:13:22', '2018-08-26 18:13:22'),
+(2658, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-26 18:14:08', '2018-08-26 18:14:08'),
+(2659, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-26 18:30:00', '2018-08-26 18:30:00'),
+(2660, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-26 18:33:24', '2018-08-26 18:33:24'),
+(2661, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-26 18:34:51', '2018-08-26 18:34:51'),
+(2662, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-26 18:35:53', '2018-08-26 18:35:53'),
+(2663, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Category', 6, '2018-08-26 18:36:01', '2018-08-26 18:36:01'),
+(2664, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-26 18:37:32', '2018-08-26 18:37:32'),
+(2665, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Category', 6, '2018-08-26 18:40:38', '2018-08-26 18:40:38'),
+(2666, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Category', 6, '2018-08-26 18:45:14', '2018-08-26 18:45:14'),
+(2667, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Category', 6, '2018-08-26 18:52:12', '2018-08-26 18:52:12'),
+(2668, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Category', 6, '2018-08-26 18:53:03', '2018-08-26 18:53:03'),
+(2669, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Category', 6, '2018-08-26 18:54:35', '2018-08-26 18:54:35'),
+(2670, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Category', 6, '2018-08-26 18:57:58', '2018-08-26 18:57:58'),
+(2671, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Category', 6, '2018-08-26 18:59:10', '2018-08-26 18:59:10'),
+(2672, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Category', 6, '2018-08-26 19:01:39', '2018-08-26 19:01:39'),
+(2673, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Category', 6, '2018-08-26 19:04:16', '2018-08-26 19:04:16'),
+(2674, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Category', 6, '2018-08-26 19:05:09', '2018-08-26 19:05:09'),
+(2675, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Category', 6, '2018-08-26 19:06:26', '2018-08-26 19:06:26'),
+(2676, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Category', 6, '2018-08-26 19:07:36', '2018-08-26 19:07:36'),
+(2677, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Category', 6, '2018-08-26 19:10:47', '2018-08-26 19:10:47'),
+(2678, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Category', 6, '2018-08-26 19:11:30', '2018-08-26 19:11:30'),
+(2679, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Category', 6, '2018-08-26 19:12:05', '2018-08-26 19:12:05'),
+(2680, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-26 19:12:12', '2018-08-26 19:12:12'),
+(2681, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Category', 6, '2018-08-26 19:14:03', '2018-08-26 19:14:03'),
+(2682, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Category', 6, '2018-08-26 19:15:27', '2018-08-26 19:15:27'),
+(2683, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-26 19:18:06', '2018-08-26 19:18:06'),
+(2684, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-26 19:19:51', '2018-08-26 19:19:51'),
+(2685, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-26 19:23:18', '2018-08-26 19:23:18'),
+(2686, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-26 19:24:55', '2018-08-26 19:24:55'),
+(2687, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-26 19:27:55', '2018-08-26 19:27:55'),
+(2688, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Post', 6, '2018-08-26 19:28:41', '2018-08-26 19:28:41'),
+(2689, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Category', 6, '2018-08-26 19:29:05', '2018-08-26 19:29:05'),
+(2690, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Post', 5, '2018-08-26 19:29:46', '2018-08-26 19:29:46'),
+(2691, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Category', 6, '2018-08-26 19:31:50', '2018-08-26 19:31:50'),
+(2692, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Category', 6, '2018-08-26 19:34:57', '2018-08-26 19:34:57'),
+(2693, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Post', 5, '2018-08-26 19:35:06', '2018-08-26 19:35:06'),
+(2694, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Post', 5, '2018-08-26 19:35:40', '2018-08-26 19:35:40'),
+(2695, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-26 20:29:48', '2018-08-26 20:29:48'),
+(2696, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Category', 6, '2018-08-26 20:31:15', '2018-08-26 20:31:15'),
+(2697, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Post', 7, '2018-08-26 20:31:42', '2018-08-26 20:31:42'),
+(2698, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Category', 2, '2018-08-26 20:32:17', '2018-08-26 20:32:17'),
+(2699, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Category', 3, '2018-08-26 20:32:36', '2018-08-26 20:32:36'),
+(2700, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-26 20:32:57', '2018-08-26 20:32:57'),
+(2701, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-26 20:34:04', '2018-08-26 20:34:04');
 
 --
 -- Indexes for dumped tables
@@ -3714,22 +3814,22 @@ ALTER TABLE `files`
 -- AUTO_INCREMENT for table `media_files`
 --
 ALTER TABLE `media_files`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `menu_links`
 --
 ALTER TABLE `menu_links`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 --
 -- AUTO_INCREMENT for table `menu_link_translations`
 --
 ALTER TABLE `menu_link_translations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 --
 -- AUTO_INCREMENT for table `migrations`
 --
@@ -3739,7 +3839,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `posts_tags_relationship`
 --
@@ -3749,7 +3849,7 @@ ALTER TABLE `posts_tags_relationship`
 -- AUTO_INCREMENT for table `post_translations`
 --
 ALTER TABLE `post_translations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT for table `post_types`
 --
@@ -3789,7 +3889,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `visits`
 --
 ALTER TABLE `visits`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2651;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2702;
 --
 -- Constraints for dumped tables
 --
