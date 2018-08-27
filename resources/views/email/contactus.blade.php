@@ -12,16 +12,19 @@
 
 <table class="table">
 <tr>
-    <td>Sender</td><td>{{$user}}</td>
+    <td>Subject</td><td>{{$subject}}</td>
 </tr>
 <tr>
-    <td>Phone</td><td>{{$cell}}</td>
+    <td>Sender</td><td>{{$first_name}} {{$last_name}}</td>
 </tr>
 <tr>
-    <td>Mail</td><td>{{$mail}}</td>
+    <td>Phone</td><td>{{$cellphone}}</td>
 </tr>
 <tr>
-    <td>Message</td><td>{!!$msg!!}</td>
+    <td>Mail</td><td>{{$email}}</td>
+</tr>
+<tr>
+    <td>Message</td><td></td>
 </tr>
 
 </table>
