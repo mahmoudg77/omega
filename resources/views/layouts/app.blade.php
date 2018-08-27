@@ -205,7 +205,7 @@
                     <address>
                         <p>Have questions, comments or just want to say hello:</p>
                         <ul class="my_address">
-                            <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i>{{Setting::getIfExists('site_email','info@omegaegy.net')}}</a></li>
+                            <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i>{{Setting::getIfExists('emails_default','info@omegaegy.net')}}</a></li>
                             <li><a href="#"><i class="fa fa-phone" aria-hidden="true"></i>{{Setting::getIfExists('site_phone','+202 2795 1402')}}</a></li>
                             <li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i><span>{{Setting::getIfExists('site_address','17 Magles El Shaab St. Lazogly Square Cairo, Egypt')}} </span></a></li>
                         </ul>

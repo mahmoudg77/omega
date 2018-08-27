@@ -12,7 +12,7 @@ class ContactController extends Controller
         $page=Func::getPageBySlug('contact-us');
         if($page)
             \App\Models\Visit::log(\App\Models\Post::class,$page->id);
-        return view('contactus');
+        return view('contact-us');
     }
     
 //    public function send(Request $request){
@@ -56,38 +56,42 @@ class ContactController extends Controller
     
     public function send(Request $request)
        {
-           $this->validate($request, [
-            'username' => 'required',
-            'email' => 'required|email',
-            'cellphone' => 'required',
-            'message' => 'required'
-            ]);
-            
-            $user = $request->get('username');
-            $mail = $request->get('email'); 
-            $cell = $request->get('cellphone');
-            $msg  = $request->get('message'); 
+
+//          dd( $this->validate($request, [
+//            'first_name' => 'required',
+//            'last_name' => 'required',
+//            'email' => 'required|email',
+//            'cellphone' => 'required',
+//            'message' => 'required'
+//            ]));
+            $first_name = $request->get('first_name');
+            $last_name = $request->get('last_name');
+            $subject = $request->get('subject');
+
+            $email = $request->get('email');
+            $cellphone = $request->get('cellphone');
+            $message  = $request->get('message');
            // Creating Array of Errors
             $formErrors = array();
-            if (strlen($user) <= 3) {
+            if (strlen($first_name) <= 3) {
                 $formErrors[] = 'Username Must Be Larger Than <strong>3</strong> Characters';
             }
-            if (strlen($msg) < 10) {
+            if (strlen($message) < 10) {
                 $formErrors[] = 'Message Can\'t Be Less Than <strong>10</strong> Characters'; 
             }
 
             // If No Errors Send The Email [ mail(To, Subject, Message, Headers, Parameters) ]
 
-            $headers = 'From: ' . $mail . '\r\n';
+            $headers = 'From: ' . $email . '\r\n';
             $myEmail = Setting::getIfExists('emails_noreplay');//'sfece@gmail.com';
-            $subject = 'Contact Form';
+            //$subject = 'Contact Form';
 
-            if (empty($formErrors)) {
+            if (count($formErrors)==0) {
                // dd ($user,$mail,$cell,$msg);
 
-                    Mail::send('email.contactus', compact('user' ,'mail','msg','cell'), function ($m) use ($user,$mail,$myEmail,$subject) {
+                    Mail::send('email.contactus', compact('first_name' ,'last_name','subject','email','message','cellphone'), function ($m) use ($first_name,$last_name,$email,$myEmail,$subject) {
                         //$m->from($mail, $user);
-                        $m->to($myEmail, 'SFECE.ORG')->subject($subject);
+                        $m->to($myEmail, 'omegaegy.net')->subject($subject);
                     });
                // mail($myEmail, $subject, $msg, $headers);
 
@@ -97,10 +101,11 @@ class ContactController extends Controller
 //                $msg = '';
 
                 $success = '<div class="alert alert-success">We Have Recieved Your Message</div>';
+                return view('contact-us',compact('success'));
 
             }
-
+           // return "asdasdasdas";
            //return back()->with('success', 'Thanks for contacting us!');
-            return view('contactus',compact('success'));
+            return view('contact-us',compact('first_name' ,'last_name','subject','email','message','cellphone','formErrors'));
        }
 }
