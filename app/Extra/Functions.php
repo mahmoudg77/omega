@@ -223,7 +223,7 @@ class Functions
         $list=explode(",",$strTags);
         $result=[];
         foreach ($list as $tag){
-            $result[]="<a href='".route('getPostsByTag',['tag'=>$tag])."' class='label label-primary'>".$tag."</a>";
+            $result[]="<a href='".route('getPostsByTag',['tag'=>$tag])."' class='text-capitalize'>".$tag."</a>";
         }
         return implode(" ",$result);
     }

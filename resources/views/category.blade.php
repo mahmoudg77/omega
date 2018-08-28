@@ -44,7 +44,6 @@
                                 </a>
                             </div>
                             <div class="col-sm-6">
-
                                 {!! str_limit($post->body, 200) !!}
                                 <div class="" style="float: left">
                                     <a href="{{route('getPostBySlug', $post->slug) }}"
@@ -59,40 +58,37 @@
                     @endforeach
                     @else
                         <div class="alert alert-warning text-center"><h5>{{ trans('app.no articles') }}</h5></div>
-
                     @endif
                 </div>
                 </div>
                 <div class="col-sm-4 widget_area">
                     <div class="resent" style="padding-bottom: 40px;">
                         <h3 class="text-uppercase">{{trans('app.last articles')}}</h3>
-                        @foreach($lastPosts as $lastpost)
+                        <hr>
+                        @if($cat=\App\Models\Category::where('slug','blog')->first())
+                        @foreach($cat->Posts()->orderBy('id','desc')->limit(4)->get() as $p)
                             <div class="media">
                                 <div class="media-left">
                                     <a href="#">
-                                        <img class="media-object" src="{{$lastpost->mainImage()}}" alt="{{ $lastpost->title}}" style="width:70px;">
+                                        <img class="media-object" src="{{$p->mainImage()}}" alt="{{ $p->title}}" style="width:70px;">
                                     </a>
                                 </div>
                                 <div class="media-body">
-                                    <a href="#">{!! str_limit($post->body, 70) !!}</a>
-                                    <h6>Oct 19, 2016</h6>
+                                    <a href="{{route('getPostBySlug', $p->slug) }}">{!! str_limit($p->body, 70) !!}</a>
+                                    <h6>{{ $p->created_at!=null?$post->created_at->toDateString():'' }}</h6>
                                 </div>
                             </div>
+                        
                         @endforeach
+                       @endif
                     </div>
                     
                     <div class="resent">
                         <h3>Tag</h3>
                         <ul class="tag">
-                            <li><a href="#">PAINTING</a></li>
-                            <li><a href="#">CONSTRUCTION</a></li>
-                            <li><a href="#">Architecture</a></li>
-                            <li><a href="#">Building</a></li>
-                            <li><a href="#">Design</a></li>
-                            <li><a href="#">Design</a></li>
+                            <li>{!! Func::tagLinks($post->strTags())!!}</li>
                         </ul>
                     </div>
-                    
                 </div>
             </div>
         </div>

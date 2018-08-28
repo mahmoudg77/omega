@@ -2675,3 +2675,19 @@ a:focus, a:hover, .btn:focus, .btn:hover, button:focus, button:hover {
 /*--------------------------------------------------*/
 
 /*# sourceMappingURL=style.css.map */
+
+/*Start My Css Theame*/
+/*start section blog*/
+.blog_all .tags a{
+    background--color: #eee;
+    padd-ing: 3px;
+    color: #555;
+}
+.blog_all .tags a:hover, .blog_all .tags a:focus{
+    color:#222;
+}
+.blog_admin{color:#555 !important;}
+.blog_admin:hover, .blog_admin:focus{color:#222 !important;}
+/*end section blog*/
+
+/*End My Css Theame*/
