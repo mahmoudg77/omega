@@ -124,7 +124,7 @@
     <section class="our_services_area">
         <div class="container">
             <div class="tittle wow fadeInUp">
-                <h2>Our Services</h2>
+                <h2>Our {{ $cat->title }}</h2>
                 <h4>{!! str_limit($cat->description, 450,"") !!}</h4>
             </div>
             <div class="portfolio_inner_area">
@@ -134,10 +134,6 @@
                         @foreach($cat->Chields as $c)
                         <li data-filter=".{{$c->slug}}"><a href="">{{$c->title}}</a></li>
                         @endforeach
-                        <!-- <li data-filter=".branding"><a href="">Building</a></li>
-                        <li data-filter=".webdesign"><a href="">CONSTRUCTION</a></li>
-                        <li data-filter=".adversting"><a href="">DESIGN</a></li>
-                        <li data-filter=".painting"><a href="">Painting</a></li> -->
                     </ul>
                 </div>
                 <div class="portfolio_item">
@@ -146,7 +142,8 @@
                    @foreach($c->Posts()->orderBy('id','desc')->limit(6)->get() as $p)
                     <div class="single_facilities col-xs-4 p0 {{$c->slug}}">
                        <div class="single_facilities_inner">
-                          	<img src="{{$p->mainImage()}}" alt="{{$p->title}}" class="img-responsive center-block" style="height: 380px;width: 100%;">
+                          	<img src="{{$p->mainImage()}}" alt="{{$p->title}}" class="img-responsive center-block" 
+                                 style="height: 380px;width: 100%;">
                             <div class="gallery_hover">
                                 <h4>{{$p->title}}</h4>
                                 <ul>

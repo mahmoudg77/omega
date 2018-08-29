@@ -50,63 +50,62 @@
                                 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b22627b8f9a1fe2"></script>
                             @endif
                         </div>
-                    
 
                     <div class="related-post">
-                    <h4 class="related-post-heading" style="margin:20px 0;padding:10px;background-color:#eee">{{ trans('app.related posts')}}</h4>
-                    @if(count($related_posts)>0)
-                    @foreach($related_posts as $rpost)
-                        <div class="col-md-4">
-                        <a href="{{ route('getPostBySlug', $rpost->slug) }}">
-                            <div class="related-post-item">
-                                <figure>
-                                    <img class="img-responsive center-block" src="{{$rpost->mainImage()}}"/>
-
-                                </figure>
-                                <h4 class="related-title" style="background-color: #e71d1d;padding: 10px;color: #fff;">
-                                    {!! str_limit($rpost->title, 30) !!}
-                                </h4>
+                        <h4 class="related-post-heading" style="margin:20px 0;padding:10px;background-color:#eee">
+                            {{ trans('app.related posts')}}</h4>
+                        @if(count($related_posts)>0)
+                        @foreach($related_posts as $rpost)
+                            <div class="col-md-4">
+                            <a href="{{ route('getPostBySlug', $rpost->slug) }}">
+                                <div class="related-post-item">
+                                    <figure>
+                                        <img class="img-responsive center-block" src="{{$rpost->mainImage()}}"/>
+                                    </figure>
+                                    <h4 class="related-title" style="background-color: #e71d1d;padding: 10px;color: #fff;">
+                                        {!! str_limit($rpost->title, 30) !!}
+                                    </h4>
+                                </div>
+                            </a>
                             </div>
+                        @endforeach
 
-                        </a>
-                        </div>
-                    @endforeach
-
-                    @else
-                        {{--<div class="alert alert-warning text-center"><h5>{{ trans('app.no articles') }}</h5></div>--}}
-                    @endif
+                        @else
+                            {{--<div class="alert alert-warning text-center"><h5>{{ trans('app.no articles') }}</h5></div>--}}
+                        @endif
                     </div>
                     <div class="clearfix"></div>    
                         
                     @if(Setting::getIfExists('allow_website_comment',false) || Setting::getIfExists('allow_facebook_comment',false))
-                    <h4 class="related-post-heading" style="margin:20px 0;padding:10px;background-color:#eee">{{ trans('app.comments')}}</h4>
-                    <ul class="nav nav-tabs" id="comments">
-                        @if(Setting::getIfExists('allow_website_comment',false))
-                            <li class="">
-                                <a data-toggle="tab"
-                                   href="#website_comments">{{ trans('app.website comments')}}</a>
-                            </li>
-                        @endif
-                        @if(Setting::getIfExists('allow_facebook_comment',false))
-                            <li class="">
-                                <a data-toggle="tab"
-                                   href="#facebook_comments">{{ trans('app.facebook comments')}}</a>
-                            </li>
-                        @endif
-                    </ul>
+                        <h4 class="related-post-heading" style="margin:20px 0;padding:10px;background-color:#eee">
+                            {{ trans('app.comments')}}</h4>
+                        <ul class="nav nav-tabs" id="comments">
+                            @if(Setting::getIfExists('allow_website_comment',false))
+                                <li class="">
+                                    <a data-toggle="tab"
+                                       href="#website_comments">{{ trans('app.website comments')}}</a>
+                                </li>
+                            @endif
+                            @if(Setting::getIfExists('allow_facebook_comment',false))
+                                <li class="">
+                                    <a data-toggle="tab"
+                                       href="#facebook_comments">{{ trans('app.facebook comments')}}</a>
+                                </li>
+                            @endif
+                        </ul>
 
-                    <div class="tab-content">
-                    @if(Setting::getIfExists('allow_website_comment',false))
-                        <div id="website_comments" class="tab-pane fade in" >
-                            <div class="alert alert-warning">{{trans('app.comments') . ' ' . trans('app.not_available_now')}}</div>
+                        <div class="tab-content">
+                            @if(Setting::getIfExists('allow_website_comment',false))
+                                <div id="website_comments" class="tab-pane fade in" >
+                                    <div class="alert alert-warning">{{trans('app.comments') . ' ' . trans('app.not_available_now')}}</div>
+                                </div>
+                            @endif
+                            @if(Setting::getIfExists('allow_facebook_comment',false))
+                                <div id="facebook_comments" class="tab-pane fade in" >
+                                    <div class="fb-comments" data-href="{{request()->url()}}" data-numposts="5" data-width="100%"></div>
+                                </div>
+                            @endif
                         </div>
-                    @endif
-                    @if(Setting::getIfExists('allow_facebook_comment',false))
-                        <div id="facebook_comments" class="tab-pane fade in" >
-                            <div class="fb-comments" data-href="{{request()->url()}}" data-numposts="5" data-width="100%"></div>
-                        </div>
-                    @endif
-                    </div>
                     @endif
                 </div>
                 </div>
@@ -116,16 +115,16 @@
                     <h3 class="text-uppercase">{{trans('app.last articles')}}</h3>
                     <hr>
                     @if($cat=\App\Models\Category::where('slug','blog')->first())
-                    @foreach($cat->Posts()->orderBy('id','desc')->limit(4)->get() as $p)
+                    @foreach($cat->Posts()->orderBy('id','desc')->limit(4)->get() as $post)
                         <div class="media">
                             <div class="media-left">
                                 <a href="#">
-                                    <img class="media-object" src="{{$p->mainImage()}}" alt="{{ $p->title}}" style="width:70px;">
+                                    <img class="media-object" src="{{$post->mainImage()}}" alt="{{ $post->title}}" style="width:70px;">
                                 </a>
                             </div>
                             <div class="media-body">
-                                <a href="{{route('getPostBySlug', $p->slug) }}">{!! str_limit($p->body, 70) !!}</a>
-                                <h6>{{ $p->created_at!=null?$post->created_at->toDateString():'' }}</h6>
+                                <a href="{{route('getPostBySlug', $post->slug) }}">{!! str_limit($post->body, 70) !!}</a>
+                                <h6>{{ $post->created_at!=null?$post->created_at->toDateString():'' }}</h6>
                             </div>
                         </div>
                     @endforeach

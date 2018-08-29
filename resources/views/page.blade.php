@@ -5,25 +5,32 @@
 
 @section('content')
 
-<section class="single" style="min-height:500px;">
-    <div class="col-xs-12 col-sm-8">
-        <div class="single-box">
-            <div class="single-img">
-                <img src="{{ $singlePost->mainImage() }}" class="img-responsive img-thumbanail" style="margin: auto;max-height: 500px;"/>
-            </div>
+<!-- Banner area -->
+<section class="banner_area" data-stellar-background-ratio="0.5">
+    <h2>ABOUT US</h2>
+    <ol class="breadcrumb">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#" class="active">ABOUT US</a></li>
+    </ol>
+</section>
+<!-- End Banner area -->
 
-            <div class="single-content">
-                <h2>{{ $singlePost->title }}</h2>
-                
-                <div class="uderline" style="padding:10px 0.border:1px solid #ddd;"></div>
-                <p>{!! $singlePost->body !!} </p>
+<section class="blog_all">
+    <div class="container">
+        <div class="row m0 blog_row">
+            <div class="col-sm-8 main_blog">
+                <div class="blog-body">
+<!--
+                    <img src="{{$singlePost->mainImage()}}" class="img-responsive img-thumbanail" style="width:100%"/>
+                    <br>
+-->
+                    <h2 style="margin:20px 0;">{{$singlePost->title}}</h2>
+                    <hr style="margin:5px 0;">
+                    <div style="line-height: 40px;margin: 30px 0;">{!! $singlePost->body !!}</div>
+                    <hr style="margin:5px 0 20px;">
+                </div>
             </div>
         </div>
     </div>
-    
-    <div class="hidden--xs col-xs-12 col-sm-4">
-        @include('sidebar')
-    </div>
 </section>
-
 @stop

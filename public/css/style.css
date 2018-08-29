@@ -2677,15 +2677,29 @@ a:focus, a:hover, .btn:focus, .btn:hover, button:focus, button:hover {
 /*# sourceMappingURL=style.css.map */
 
 /*Start My Css Theame*/
+.button_all{color:#fff !important;}
+.button_all:hover, .button_all:focus{color:#fff !important;}
+.our_services_area .portfolio_inner_area .portfolio_filter ul li a 
+{
+    font: 400 20px "Oswald", sans-serif;
+}
+.our_partners_area .book_now_aera .book_now .booking_text p {color: #fff;}
+.all_contact_info .contact_row .send_message .contact_box button {color:#fff !important;}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    background-color: #fff !important;
+    color: #e71d1d !important;
+}
+.footer_area .footer_row .footer_about address .my_address li span {padding-left: 5px !important;}
+.dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover {background-color: #fff !important;}
+.blog_tow_area {padding-top: 0px;}
+/*start section slider*/
+.slider_area .slider_inner .camera_caption div a{color:#fff !important;}
+.slider_area .slider_inner .camera_caption div a:hover, .slider_area .slider_inner .camera_caption div a:focus{color:#555 !important;}
+/*end section slider*/
+
 /*start section blog*/
-.blog_all .tags a{
-    background--color: #eee;
-    padd-ing: 3px;
-    color: #555;
-}
-.blog_all .tags a:hover, .blog_all .tags a:focus{
-    color:#222;
-}
+.blog_all .tags a{color: #555;}
+.blog_all .tags a:hover, .blog_all .tags a:focus{color:#222;}
 .blog_admin{color:#555 !important;}
 .blog_admin:hover, .blog_admin:focus{color:#222 !important;}
 /*end section blog*/

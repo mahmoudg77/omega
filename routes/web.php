@@ -106,6 +106,7 @@ Route::group(['prefix' => app()->getLocale(),'middleware'=>'LanguageSwicher'], f
 
     Route::get('/category/{slug}','Front\CategoryController@getPostsByCatSlug')->name('categoryBySlug');
     Route::get('/category/{id}','Front\CategoryController@getPostsByCatID')->name('getPostsByCatID');
+//    Route::get('/services/{slug}','Front\CatServicesController@getAllServices')->name('getAllServices');
     //->where('slug','^([0-9A-Za-z\-]+)?bar([0-9A-Za-z\-]+)?');
     Route::get('/tags/{tag}','Front\CategoryController@getPostsByTag')->name('getPostsByTag');
     Route::get('/article','Front\CategoryController@getAllPosts')->name('getAllPosts');
@@ -115,9 +116,11 @@ Route::group(['prefix' => app()->getLocale(),'middleware'=>'LanguageSwicher'], f
 //    Route::get('/sendemail','Front\ContactController@sendEmail')->name('sendemail');
     
     Route::get('contact-us', 'Front\ContactController@index');
+    Route::get('services', 'Front\CatServicesController@getAllServices');
     Route::post('contact-us', ['as'=>'contact.send','uses'=>'Front\ContactController@send']);
     
     Route::get('/{slug}','Front\SingleController@getPostBySlug')->name('getPostBySlug');
+    Route::get('/singleservice/{slug}','Front\SingleServiceController@getPostBySlug')->name('getSingleService');
     
     Route::get('/download-file/{filename}','Dashboard\FileController@getFile')->name('download');
 

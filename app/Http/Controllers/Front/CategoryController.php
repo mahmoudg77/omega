@@ -9,23 +9,6 @@ use App\Models\Category;
 
 class CategoryController extends Controller
 {
-//    public function getPostsByCatID($id){
-//
-//        $allPostsByCat = post::where('category_id', '=', $id)->where('is_published',1)->where('post_type_id', 2)->get();
-//        $category = category::where('id', $id)->first();
-//        $categoryName= $category->title;
-//        $categoryDesc = $category->description;
-//
-//        $lastPosts = Post::where('post_type_id', 2)->where('is_published', 1)->orderBy('id', 'desc')->take(4)->get();
-//        $allcats = Category::where('parent_id', '<>',null)->get();
-//
-//        $title=$category->title;
-//        $description=$category->description;
-//
-//        \App\Models\Visit::log(\App\Models\Category::class,$category->id);
-//
-//        return view('category', compact('allPostsByCat', 'title','description', 'lastPosts', 'allcats'));
-//    }
     
     public function getPostsByCatSlug($slug){
         
@@ -47,7 +30,7 @@ class CategoryController extends Controller
 
         \App\Models\Visit::log(\App\Models\Category::class,$category->id);
 
-        return view('category', compact('allPostsByCat', 'title','description', 'lastPosts', 'allcats'));
+        return view('categoryBlogs', compact('allPostsByCat', 'title','description', 'lastPosts', 'allcats'));
     }
 
 
@@ -69,7 +52,7 @@ class CategoryController extends Controller
      $title=$tag;
      $description=$tag;
 
-    return view('category', compact('allPostsByCat', 'title','description', 'lastPosts', 'allcats'));
+    return view('categoryBlogs', compact('allPostsByCat', 'title','description', 'lastPosts', 'allcats'));
 
     }
      public function getAllPosts(){
@@ -87,7 +70,7 @@ class CategoryController extends Controller
      $title="أحدث المقالات";
      $description="";
 
-    return view('category', compact('allPostsByCat', 'title','description', 'lastPosts', 'allcats'));
+    return view('categoryBlogs', compact('allPostsByCat', 'title','description', 'lastPosts', 'allcats'));
 
     }
 }
