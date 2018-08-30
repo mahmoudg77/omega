@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 30, 2018 at 09:28 AM
+-- Generation Time: Aug 30, 2018 at 01:17 PM
 -- Server version: 5.7.14
 -- PHP Version: 7.0.10
 
@@ -205,7 +205,11 @@ INSERT INTO `media_files` (`id`, `name`, `size`, `media_type`, `model_name`, `mo
 (15, '4e2bd_client_logo-5.png', 5689, 'image/png', 'App\\Models\\Post', 14, 'main', '2018-08-26 18:33:07', '2018-08-26 18:33:07'),
 (16, 'a1676_about-us.jpg', 77710, 'image/jpeg', 'App\\Models\\Post', 15, 'main', '2018-08-26 19:23:03', '2018-08-26 19:23:03'),
 (17, '81111_about_client.jpg', 44441, 'image/jpeg', 'App\\Models\\Post', 15, 'main', '2018-08-26 19:24:49', '2018-08-26 19:24:49'),
-(18, '2805a_about-us-banner.jpg', 62450, 'image/jpeg', 'App\\Models\\Post', 16, 'main', '2018-08-29 08:07:34', '2018-08-29 08:07:34');
+(18, '2805a_about-us-banner.jpg', 62450, 'image/jpeg', 'App\\Models\\Post', 16, 'main', '2018-08-29 08:07:34', '2018-08-29 08:07:34'),
+(19, '6f530_r-1.jpg', 27393, 'image/jpeg', 'App\\Models\\Post', 17, 'main', '2018-08-30 09:32:24', '2018-08-30 09:32:24'),
+(20, '4c3dc_slider-2.jpg', 163221, 'image/jpeg', 'App\\Models\\Post', 18, 'main', '2018-08-30 09:33:53', '2018-08-30 09:33:53'),
+(21, '69ef4_cns-3.jpg', 17911, 'image/jpeg', 'App\\Models\\Post', 17, 'main', '2018-08-30 09:42:05', '2018-08-30 09:42:05'),
+(22, '60d34_slider-1.jpg', 161982, 'image/jpeg', 'App\\Models\\Post', 17, 'main', '2018-08-30 09:42:42', '2018-08-30 09:42:42');
 
 -- --------------------------------------------------------
 
@@ -261,11 +265,11 @@ INSERT INTO `menu_links` (`id`, `menu_id`, `customlink`, `category_id`, `parent_
 (17, 2, '/article', NULL, NULL, 0, '2018-05-14 06:18:45', '2018-05-14 06:18:45', 0),
 (18, 2, NULL, 12, NULL, 0, '2018-05-14 06:19:49', '2018-07-26 18:47:52', 0),
 (19, 2, '/contact-us', NULL, NULL, 0, '2018-05-14 06:20:37', '2018-07-26 18:50:45', 0),
-(20, 3, 'https://www.facebook.com/sffece/', NULL, NULL, 0, '2018-05-26 01:01:02', '2018-05-28 08:03:38', 0),
-(21, 3, 'https://twitter.com/SFECE2', NULL, NULL, 0, '2018-05-26 01:11:58', '2018-06-27 15:51:51', 0),
+(20, 3, 'https://www.facebook.com/', NULL, NULL, 0, '2018-05-26 01:01:02', '2018-08-30 10:01:36', 0),
+(21, 3, 'https://twitter.com/', NULL, NULL, 0, '2018-05-26 01:11:58', '2018-08-30 10:01:49', 0),
 (22, 3, 'https://youtube.com', NULL, NULL, 0, '2018-05-26 01:13:25', '2018-05-26 01:13:25', 0),
-(24, 3, 'https://www.linkedin.com/in/%D8%A7%D9%84%D9%85%D8%A4%D8%B3%D8%B3%D8%A9-%D8%A7%D9%84%D8%B9%D9%84%D9%85%D9%8A%D8%A9-%D9%84%D8%AA%D8%B1%D8%A8%D9%8A%D8%A9-%D8%A7%D9%84%D8%B7%D9%81%D9%88%D9%84%D8%A9-9545b5166/', NULL, NULL, 0, '2018-07-12 00:03:30', '2018-07-12 00:03:30', 0),
-(25, 3, 'https://www.instagram.com/sf_ece/', NULL, NULL, 0, '2018-07-12 00:05:08', '2018-07-29 10:00:11', 0),
+(24, 3, 'https://www.linkedin.com/', NULL, NULL, 0, '2018-07-12 00:03:30', '2018-08-30 10:02:19', 0),
+(25, 3, 'https://www.instagram.com/', NULL, NULL, 0, '2018-07-12 00:05:08', '2018-08-30 10:03:47', 0),
 (28, 1, '/services', NULL, NULL, 1, '2018-08-12 18:45:37', '2018-08-29 08:38:59', 0),
 (29, 1, NULL, 6, NULL, 0, '2018-08-12 18:46:43', '2018-08-26 18:35:28', 0),
 (30, 1, '/contact-us', NULL, NULL, 0, '2018-08-12 18:47:12', '2018-08-29 08:19:50', 0),
@@ -310,16 +314,16 @@ INSERT INTO `menu_link_translations` (`id`, `menu_link_id`, `locale`, `title`) V
 (36, 18, 'en', 'Oure Versions'),
 (37, 19, 'ar', 'اتصل بنا'),
 (38, 19, 'en', 'Contact us'),
-(39, 20, 'ar', '<i class="fa fa-facebook-square fa-lg"></i>'),
-(40, 20, 'en', '<i class="fa fa-facebook-square fa-lg"></i>'),
-(41, 21, 'ar', '<i class="fa fa-twitter-square fa-lg"></i>'),
-(42, 21, 'en', '<i class="fa fa-twitter-square fa-lg"></i>'),
-(43, 22, 'ar', '<i class="fa fa-youtube-square fa-lg"></i>'),
-(44, 22, 'en', '<i class="fa fa-youtube-square fa-lg"></i>'),
-(47, 24, 'ar', '<i class="fa fa-linkedin-square fa-lg"></i>'),
-(48, 24, 'en', '<i class="fa fa-linkedin-square fa-lg"></i>'),
-(49, 25, 'ar', '<i class="fa fa-instagram fa-lg"></i>'),
-(50, 25, 'en', '<i class="fa fa-instagram fa-lg"></i>'),
+(39, 20, 'ar', '<i class="fa fa-facebook"></i>'),
+(40, 20, 'en', '<i class="fa fa-facebook"></i>'),
+(41, 21, 'ar', '<i class="fa fa-twitte"></i>'),
+(42, 21, 'en', '<i class="fa fa-twitter"></i>'),
+(43, 22, 'ar', '<i class="fa fa-youtube"></i>'),
+(44, 22, 'en', '<i class="fa fa-youtube"></i>'),
+(47, 24, 'ar', '<i class="fa fa-linkedin"></i>'),
+(48, 24, 'en', '<i class="fa fa-linkedin"></i>'),
+(49, 25, 'ar', '<i class="fa fa-instagram"></i>'),
+(50, 25, 'en', '<i class="fa fa-instagram"></i>'),
 (55, 28, 'ar', 'خدماتنا'),
 (56, 28, 'en', 'Services'),
 (57, 29, 'ar', 'الاخبار'),
@@ -471,7 +475,9 @@ INSERT INTO `posts` (`id`, `pub_date`, `post_type_id`, `category_id`, `is_publis
 (12, '2018-08-26 20:33:08', 2, 7, 1, 14, NULL, '2018-08-26 18:31:59', '2018-08-26 18:33:19', 'partner-post-1'),
 (13, '2018-08-26 20:33:08', 2, 7, 1, 14, NULL, '2018-08-26 18:32:33', '2018-08-26 18:33:18', 'partner-post-2'),
 (14, '2018-08-26 20:33:08', 2, 7, 1, 14, NULL, '2018-08-26 18:33:07', '2018-08-26 18:33:17', 'partner-post-3'),
-(15, '2018-08-26 21:23:08', 2, 2, 1, 14, NULL, '2018-08-26 19:23:03', '2018-08-26 19:23:12', 'trading-post-2');
+(15, '2018-08-26 21:23:08', 2, 2, 1, 14, NULL, '2018-08-26 19:23:03', '2018-08-26 19:23:12', 'trading-post-2'),
+(17, '2018-08-30 11:38:08', 4, 0, 1, 14, NULL, '2018-08-30 09:32:23', '2018-08-30 09:38:26', 'clean-modern-multipurpose-theme'),
+(18, '2018-08-30 11:38:08', 4, 0, 1, 14, NULL, '2018-08-30 09:33:53', '2018-08-30 09:38:24', 'clean-modern-multipurpose-theme_1');
 
 -- --------------------------------------------------------
 
@@ -540,7 +546,11 @@ INSERT INTO `post_translations` (`id`, `post_id`, `locale`, `title`, `body`) VAL
 (23, 14, 'ar', 'Partner post 3', '<p>Partner post 3</p>'),
 (24, 14, 'en', 'Partner post 3', '<p>Partner post 3</p>'),
 (25, 15, 'ar', 'Trading post 2', '<p>Trading post 2</p>'),
-(26, 15, 'en', 'Trading post 2', '<p>Trading post 2</p>');
+(26, 15, 'en', 'Trading post 2', '<p>Trading post 2</p>'),
+(29, 17, 'ar', 'CLEAN ,MODERN, MULTIPURPOSE THEME', '<p>Our team of professionals will help you turn your dream home or flat into a reality fast. The Love Boat promises something for everyone. Now the world don\'t move to the beat of just one</p>'),
+(30, 17, 'en', 'CLEAN ,MODERN, MULTIPURPOSE THEME', '<p>Our team of professionals will help you turn your dream home or flat into a reality fast. The Love Boat promises something for everyone. Now the world don\'t move to the beat of just one</p>'),
+(31, 18, 'ar', 'CLEAN ,MODERN, MULTIPURPOSE THEME', '<p>Our team of professionals will help you turn your dream home or flat into a reality fast. The Love Boat promises something for everyone. Now the world don\'t move to the beat of just one</p>'),
+(32, 18, 'en', 'CLEAN ,MODERN, MULTIPURPOSE THEME', '<p>Our team of professionals will help you turn your dream home or flat into a reality fast. The Love Boat promises something for everyone. Now the world don\'t move to the beat of just one</p>');
 
 -- --------------------------------------------------------
 
@@ -3788,7 +3798,86 @@ INSERT INTO `visits` (`id`, `client_ip`, `client_country`, `client_city`, `model
 (2850, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-29 13:01:47', '2018-08-29 13:01:47'),
 (2851, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-29 13:04:08', '2018-08-29 13:04:08'),
 (2852, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-29 13:05:19', '2018-08-29 13:05:19'),
-(2853, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 07:26:46', '2018-08-30 07:26:46');
+(2853, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 07:26:46', '2018-08-30 07:26:46'),
+(2854, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:22:06', '2018-08-30 09:22:06'),
+(2855, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:22:21', '2018-08-30 09:22:21'),
+(2856, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:22:22', '2018-08-30 09:22:22'),
+(2857, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:22:23', '2018-08-30 09:22:23'),
+(2858, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:22:23', '2018-08-30 09:22:23'),
+(2859, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:22:23', '2018-08-30 09:22:23'),
+(2860, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:22:24', '2018-08-30 09:22:24'),
+(2861, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:22:24', '2018-08-30 09:22:24'),
+(2862, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:22:24', '2018-08-30 09:22:24'),
+(2863, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:22:24', '2018-08-30 09:22:24'),
+(2864, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:22:25', '2018-08-30 09:22:25'),
+(2865, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:22:25', '2018-08-30 09:22:25'),
+(2866, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:22:25', '2018-08-30 09:22:25'),
+(2867, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:22:26', '2018-08-30 09:22:26'),
+(2868, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:22:26', '2018-08-30 09:22:26'),
+(2869, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:22:26', '2018-08-30 09:22:26'),
+(2870, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:22:26', '2018-08-30 09:22:26'),
+(2871, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:22:27', '2018-08-30 09:22:27'),
+(2872, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:22:27', '2018-08-30 09:22:27'),
+(2873, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:22:27', '2018-08-30 09:22:27'),
+(2874, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:22:27', '2018-08-30 09:22:27'),
+(2875, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:22:28', '2018-08-30 09:22:28'),
+(2876, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:22:28', '2018-08-30 09:22:28'),
+(2877, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:22:28', '2018-08-30 09:22:28'),
+(2878, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:22:28', '2018-08-30 09:22:28'),
+(2879, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:22:29', '2018-08-30 09:22:29'),
+(2880, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:22:29', '2018-08-30 09:22:29'),
+(2881, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:22:39', '2018-08-30 09:22:39'),
+(2882, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:28:12', '2018-08-30 09:28:12'),
+(2883, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:28:13', '2018-08-30 09:28:13'),
+(2884, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:29:21', '2018-08-30 09:29:21'),
+(2885, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:29:22', '2018-08-30 09:29:22'),
+(2886, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:32:28', '2018-08-30 09:32:28'),
+(2887, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:33:57', '2018-08-30 09:33:57'),
+(2888, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:38:33', '2018-08-30 09:38:33'),
+(2889, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Post', 17, '2018-08-30 09:38:39', '2018-08-30 09:38:39'),
+(2890, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Post', 17, '2018-08-30 09:38:46', '2018-08-30 09:38:46'),
+(2891, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Post', 18, '2018-08-30 09:39:03', '2018-08-30 09:39:03'),
+(2892, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Post', 9, '2018-08-30 09:39:24', '2018-08-30 09:39:24'),
+(2893, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Category', 6, '2018-08-30 09:39:28', '2018-08-30 09:39:28'),
+(2894, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Post', 6, '2018-08-30 09:39:35', '2018-08-30 09:39:35'),
+(2895, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Post', 18, '2018-08-30 09:39:48', '2018-08-30 09:39:48'),
+(2896, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:42:24', '2018-08-30 09:42:24'),
+(2897, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:42:46', '2018-08-30 09:42:46'),
+(2898, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:44:28', '2018-08-30 09:44:28'),
+(2899, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:44:34', '2018-08-30 09:44:34'),
+(2900, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Post', 17, '2018-08-30 09:47:55', '2018-08-30 09:47:55'),
+(2901, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Post', 17, '2018-08-30 09:48:35', '2018-08-30 09:48:35'),
+(2902, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Post', 17, '2018-08-30 09:51:31', '2018-08-30 09:51:31'),
+(2903, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Tag', 44, '2018-08-30 09:51:50', '2018-08-30 09:51:50'),
+(2904, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:51:57', '2018-08-30 09:51:57'),
+(2905, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:52:40', '2018-08-30 09:52:40'),
+(2906, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:52:47', '2018-08-30 09:52:47'),
+(2907, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Category', 6, '2018-08-30 09:52:52', '2018-08-30 09:52:52'),
+(2908, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:52:55', '2018-08-30 09:52:55'),
+(2909, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:53:00', '2018-08-30 09:53:00'),
+(2910, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Post', 8, '2018-08-30 09:53:22', '2018-08-30 09:53:22'),
+(2911, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:53:57', '2018-08-30 09:53:57'),
+(2912, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:54:25', '2018-08-30 09:54:25'),
+(2913, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:55:05', '2018-08-30 09:55:05'),
+(2914, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Post', 15, '2018-08-30 09:55:12', '2018-08-30 09:55:12'),
+(2915, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:55:17', '2018-08-30 09:55:17'),
+(2916, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Category', 6, '2018-08-30 09:55:26', '2018-08-30 09:55:26'),
+(2917, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Tag', 45, '2018-08-30 09:55:45', '2018-08-30 09:55:45'),
+(2918, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Post', 7, '2018-08-30 09:55:51', '2018-08-30 09:55:51'),
+(2919, '127.0.0.1', 'United States', 'New Haven', 'App\\Models\\Post', 6, '2018-08-30 09:56:01', '2018-08-30 09:56:01'),
+(2920, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:56:20', '2018-08-30 09:56:20'),
+(2921, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 09:56:41', '2018-08-30 09:56:41'),
+(2922, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 10:00:51', '2018-08-30 10:00:51'),
+(2923, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 10:02:28', '2018-08-30 10:02:28'),
+(2924, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 10:03:58', '2018-08-30 10:03:58'),
+(2925, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 10:04:09', '2018-08-30 10:04:09'),
+(2926, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 10:04:16', '2018-08-30 10:04:16'),
+(2927, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 10:37:49', '2018-08-30 10:37:49'),
+(2928, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 10:38:22', '2018-08-30 10:38:22'),
+(2929, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 10:38:34', '2018-08-30 10:38:34'),
+(2930, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 10:39:05', '2018-08-30 10:39:05'),
+(2931, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 10:40:34', '2018-08-30 10:40:34'),
+(2932, '127.0.0.1', 'United States', 'New Haven', 'HomePage', 0, '2018-08-30 10:41:41', '2018-08-30 10:41:41');
 
 --
 -- Indexes for dumped tables
@@ -3981,7 +4070,7 @@ ALTER TABLE `files`
 -- AUTO_INCREMENT for table `media_files`
 --
 ALTER TABLE `media_files`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `menus`
 --
@@ -4006,7 +4095,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `posts_tags_relationship`
 --
@@ -4016,7 +4105,7 @@ ALTER TABLE `posts_tags_relationship`
 -- AUTO_INCREMENT for table `post_translations`
 --
 ALTER TABLE `post_translations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT for table `post_types`
 --
@@ -4056,7 +4145,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `visits`
 --
 ALTER TABLE `visits`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2854;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2933;
 --
 -- Constraints for dumped tables
 --
