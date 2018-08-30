@@ -81,6 +81,8 @@
             <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
             <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
             <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+            
+            <li><a href="{{route('swichlang')}}">{{(app()->getLocale()=='ar')?'EN':'ع'}}</a></li>
         </ul>
     </div>
 </section>
