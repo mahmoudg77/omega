@@ -70,18 +70,23 @@
 <section class="top_header_area">
     <div class="container">
         <ul class="nav navbar-nav top_nav">
-            <li><a href="#"><i class="fa fa-phone"></i>+202 2795 1402</a></li>
-            <li><a href="#"><i class="fa fa-envelope-o"></i> info@omegaegy.net</a></li>
-            <li><a href="#"><i class="fa fa-clock-o"></i>Mon - Sat 12:00 - 20:00</a></li>
+            <li><a href="#"><i class="fa fa-phone"></i>{{\App\Models\Setting::getIfExists('site_phone')}}</a></li>
+            <li><a href="#"><i class="fa fa-envelope-o"></i>{{\App\Models\Setting::getIfExists('emails_default')}}</a></li>
+            <li><a href="#"><i class="fa fa-clock-o"></i>{{date("Y M d H:n")}}</a></li>
+            {{--Mon - Sat 12:00 - 20:00--}}
         </ul>
+
         <ul class="nav navbar-nav navbar-right social_nav">
-            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-            
+            @foreach(Func::menu('header-social') as $sl)
+                {!!  Func::drowMenuLink($sl)!!}
+            @endforeach
+                {{--<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>d--}}
+                {{--<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>--}}
+            {{--<li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>--}}
+            {{--<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>--}}
+            {{--<li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>--}}
+            {{--<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>--}}
+            {{----}}
             <li><a href="{{route('swichlang')}}">{{(app()->getLocale()=='ar')?'EN':'ع'}}</a></li>
         </ul>
     </div>
@@ -110,7 +115,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html"><img src="/images/logo.png" alt=""></a>
+                <a class="navbar-brand" href="/"><img src="/images/logo.png" alt=""></a>
             </div>
         </div>
 
@@ -121,7 +126,7 @@
                     @foreach(Func::menu('main') as $link)
                         {!!  Func::drowMenuLink($link)!!}
                     @endforeach
-                    <li><a href="#" class="nav_searchFrom"><i class="fa fa-home"></i></a></li>
+                    <li><a href="#" class="nav_searchFrom"><i class="fa fa-search"></i></a></li>
                     <!-- <li class="dropdown submenu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Home</a>
                         <ul class="dropdown-menu">

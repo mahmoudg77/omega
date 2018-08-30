@@ -277,7 +277,10 @@ class PostController extends IController
                 return Func::actionLinks('posts',$post->id,"tr",["view"=>['class'=>"","target"=>"_blank",'href'=>"/".app()->getLocale()."/".$post->slug]]);
             })
             ->addColumn('category',function ($post) {
-                return $post->Category->title;
+                if($post->Category){
+                    return $post->Category->title;
+                }
+                return "";
             })
             // ->addColumn('creator',function ($post) {
             //     return $post->Creator->name;

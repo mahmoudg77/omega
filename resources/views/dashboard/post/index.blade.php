@@ -18,7 +18,7 @@
                     <th>Title</th>
                     <th>Created Date</th>
                     <th>Publish Date</th>
-                    <th >Category</th>
+                    <th>Category</th>
                     <th>Visits</th>
                     <th>Status</th>
                     <th></th>

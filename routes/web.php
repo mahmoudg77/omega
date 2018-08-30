@@ -120,7 +120,7 @@ Route::group(['prefix' => app()->getLocale(),'middleware'=>'LanguageSwicher'], f
     Route::post('contact-us', ['as'=>'contact.send','uses'=>'Front\ContactController@send']);
     
     Route::get('/{slug}','Front\SingleController@getPostBySlug')->name('getPostBySlug');
-    Route::get('/singleservice/{slug}','Front\SingleServiceController@getPostServicesBySlug')->name('getPostServicesBySlug');
+    Route::get('/service/{slug}','Front\SingleServiceController@getPostServicesBySlug')->name('getPostServicesBySlug');
     
     Route::get('/download-file/{filename}','Dashboard\FileController@getFile')->name('download');
 

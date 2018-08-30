@@ -22,22 +22,22 @@
                     <div class="sin-gle-box" >
                         <img src="{{$singlePost->mainImage()}}" class="img-responsive img-thumbanail" style="width:100%"/>
                         <h2 style="margin:20px 0;">{{ $singlePost->title }}</h2>
-<!--
-                        <div class="bar-data" style="padding:10px">
-                                <span>
-                                    <i class="fa fa-user"></i> {{ $singlePost->Creator!=null?$singlePost->Creator->name:null }}
-                                </span>
-                                <span>
-                                    <i class="fa fa-folder"></i>
-                                    <a href="{{route('categoryBySlug', $singlePost->Category->slug)}}">{{ $singlePost->Category->title }}</a>
-                                </span>
-                                <span>
-                                    <i class="glyphicon glyphicon-time" style="font-size: 13px;"></i>
-                                    {{ $singlePost->created_at!=null?$singlePost->created_at->toDateString():'' }}
-                                </span>
-                                <span class="tags"><i class="fa fa-tags"></i> {!! Func::tagLinks($singlePost->strTags())!!}</span>
-                        </div>
--->
+
+                        {{--<div class="bar-data" style="padding:10px">--}}
+                                {{--<span>--}}
+                                    {{--<i class="fa fa-user"></i> {{ $singlePost->Creator!=null?$singlePost->Creator->name:null }}--}}
+                                {{--</span>--}}
+                                {{--<span>--}}
+                                    {{--<i class="fa fa-folder"></i>--}}
+                                    {{--<a href="{{route('categoryBySlug', $singlePost->Category->slug)}}">{{ $singlePost->Category->title }}</a>--}}
+                                {{--</span>--}}
+                                {{--<span>--}}
+                                    {{--<i class="glyphicon glyphicon-time" style="font-size: 13px;"></i>--}}
+                                    {{--{{ $singlePost->created_at!=null?$singlePost->created_at->toDateString():'' }}--}}
+                                {{--</span>--}}
+                                {{--<span class="tags"><i class="fa fa-tags"></i> {!! Func::tagLinks($singlePost->strTags())!!}</span>--}}
+                        {{--</div>--}}
+
                         <hr style="margin:5px 0;">
                         
                         <div style="line-height: 40px;margin: 30px 0;">{!! $singlePost->body !!}</div>
