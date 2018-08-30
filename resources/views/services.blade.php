@@ -35,13 +35,14 @@
                    <div class="row blog_tow_row">
                        @foreach($cat->Chields as $c)
                        @foreach($c->Posts()->orderBy('id','desc')->limit(6)->get() as $p)
-                        <div class="single_facilities {{$c->slug}} col-md-4 col-sm-6">
+                        <div class="single_facilities {{$c->slug}} col-sm-4">
                             <div class="renovation">
                                 <img src="{{$p->mainImage()}}" alt="{{$p->title}}" class="img-responsive" 
                                      style="height: 260px;width: 100%;"/>
                                 <div class="renovation_content">
-                                    <a class="clipboard" href="#"><i class="fa fa-clipboard" aria-hidden="true"></i></a>
-                                    <a class="tittle" href="#">{{$p->title}}</a>
+                                    <a class="clipboard" href="{{route('getPostServicesBySlug', $p->slug) }}">
+                                        <i class="fa fa-clipboard" aria-hidden="true"></i></a>
+                                    <a class="tittle" href="{{route('getPostServicesBySlug', $p->slug) }}">{{$p->title}}</a>
                                     <div class="date_comment">
                                         <a href="javascript:;"><i class="fa fa-calendar" aria-hidden="true"></i>
                                             {{ $p->created_at!=null?$p->created_at->toDateString('M-d-Y'):'' }}

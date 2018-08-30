@@ -147,8 +147,9 @@
                             <div class="gallery_hover">
                                 <h4>{{$p->title}}</h4>
                                 <ul>
-                                    <li><a href="#"><i class="fa fa-link" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                                    <li><a href="{{route('getPostServicesBySlug', $p->slug) }}">
+                                        <i class="fa fa-link" aria-hidden="true"></i></a></li>
+                                    <li><a href="javascript:;"><i class="fa fa-search" aria-hidden="true"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -210,7 +211,7 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                     <div class="col-md-2 p0 book_bottun">
-                        <a href="#" class="button_all">book now</a>
+                        <a href="{{route('contactus', 'contact-us') }}" class="button_all">book now</a>
                     </div>
                 </div>
             </div>
