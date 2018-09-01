@@ -22,7 +22,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-      $location=geoip()->getLocation(\Request::ip());
+      //$location=geoip()->getLocation(\Request::ip());
 
       return view('home');
     }

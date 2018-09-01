@@ -8,7 +8,7 @@
 <section class="banner_area" data-stellar-background-ratio="0.5">
     <h2>Contact US</h2>
     <ol class="breadcrumb">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="/">Home</a></li>
         <li><a href="#" class="active">Contact US</a></li>
     </ol>
 </section>

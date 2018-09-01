@@ -67,10 +67,10 @@ class CategoryController extends Controller
 
         //\App\Models\Visit::log(\App\Models\Tag::class,$tagobj->id);
 
-     $title="أحدث المقالات";
-     $description="";
+        $title="أحدث المقالات";
+        $description="";
 
-    return view('categoryBlogs', compact('allPostsByCat', 'title','description', 'lastPosts', 'allcats'));
+        return view('categoryBlogs', compact('allPostsByCat', 'title','description', 'lastPosts', 'allcats'));
 
     }
 }
