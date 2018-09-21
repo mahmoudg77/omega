@@ -85,9 +85,9 @@ Route::group(['prefix' => app()->getLocale(),'middleware'=>'LanguageSwicher'], f
     Route::resource('/secgroup','Dashboard\SecGroup',['as'=>'cp']);
     Route::resource('/secpermission','Dashboard\SecPermission',['as'=>'cp']);
     Route::resource('/setting','Dashboard\SettingController',['as'=>'cp']);
-        Route::get('/setting/edit','Dashboard\SettingController@editGroup')->name('cp.setting.edit');
-        Route::put('/setting/edit','Dashboard\SettingController@updateGroup')->name('cp.setting.update');
-        Route::post('/post-slug','Dashboard\PostController@getFreeSlug')->name('cp.post-slug');
+    Route::get('/setting/edit','Dashboard\SettingController@editGroup')->name('cp.setting.edit');
+    Route::put('/setting/edit','Dashboard\SettingController@updateGroup')->name('cp.setting.update');
+    Route::post('/post-slug','Dashboard\PostController@getFreeSlug')->name('cp.post-slug');
 
 
 
@@ -102,10 +102,10 @@ Route::group(['prefix' => app()->getLocale(),'middleware'=>'LanguageSwicher'], f
 
 
 
-    Route::get('/','Front\PostsController@getLastPosts')->name('home');
+    Route::get('/','Front\HomeController@index')->name('home');
 
-    Route::get('/category/{slug}','Front\CategoryController@getPostsByCatSlug')->name('categoryBySlug');
-    Route::get('/category/{id}','Front\CategoryController@getPostsByCatID')->name('getPostsByCatID');
+    Route::get('/cat/{slug}','Front\CategoryController@getPostsByCatSlug')->name('categoryBySlug');
+    Route::get('/cat/{id}','Front\CategoryController@getPostsByCatID')->name('getPostsByCatID');
 //    Route::get('/services/{slug}','Front\CatServicesController@getAllServices')->name('getAllServices');
     //->where('slug','^([0-9A-Za-z\-]+)?bar([0-9A-Za-z\-]+)?');
     Route::get('/tags/{tag}','Front\CategoryController@getPostsByTag')->name('getPostsByTag');

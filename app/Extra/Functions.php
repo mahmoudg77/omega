@@ -182,24 +182,32 @@ class Functions
         return substr($link,0,4)=='http' || substr($link,0,2)=='//';
      }
 
-    public static function getCategoriesList(){
+    public static function getCategoriesList($root=null){
+        $cats=[];
+        if($root==null){
+           $list= \App\Models\Category::all();
         
-       $list= \App\Models\Category::all();
-       $newcat=new \App\Models\Category();
-       $newcat->id=null;
-       $newcat->title="Main Categories";
-       $newcat->Chields=\App\Models\Category::whereNull('parent_id')->get();
-       for($x=count($newcat->Chields)-1;$x>=0;$x--){
-           if(count($newcat->Chields[$x]->Chields)>0){
-               unset($newcat->Chields[$x]);
+           $newcat=new \App\Models\Category();
+           $newcat->id=null;
+           $newcat->title="Main Categories";
+           $newcat->Chields=\App\Models\Category::whereNull('parent_id')->get();
+        
+           for($x=count($newcat->Chields)-1;$x>=0;$x--){
+               if(count($newcat->Chields[$x]->Chields)>0){
+                   unset($newcat->Chields[$x]);
+               }
            }
-       }
-       $list[]=$newcat;
+           $list[]=$newcat;
+       
+        }else{
+            $list= \App\Models\Category::where('id',$root)->get();
+        }
         foreach ($list as $cat){
             foreach ($cat->Chields as $chield){
                 $cats[$cat->title][$chield->id]=$chield->title;
             }
         }
+        
         return $cats;
     }
     public static function getPageBySlug($slug){

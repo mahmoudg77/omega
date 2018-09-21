@@ -6,10 +6,10 @@
 
 <!-- Banner area -->
 <section class="banner_area" data-stellar-background-ratio="0.5">
-    <h2>Contact US</h2>
+    <h2>{{trans('app.contact-us')}}</h2>
     <ol class="breadcrumb">
-        <li><a href="/">Home</a></li>
-        <li><a href="#" class="active">Contact US</a></li>
+        <li><a href="/">{{trans('app.home')}}</a></li>
+        <li><a href="#" class="active">{{trans('app.contact-us')}}</a></li>
     </ol>
 </section>
 <!-- End Banner area -->
@@ -26,25 +26,25 @@
         <div class="container">
             <div class="row contact_row">
                 <div class="col-sm-6 contact_info">
-                    <h2>Contact Info</h2>
+                    <h2>{{trans('app.contact-info')}}</h2>
                     <p>{{Setting::getIfExists("site_desc")}}</p>
                     <div class="location">
                         <div class="location_laft">
-                            <a class="f_location" href="#">location</a>
-                            <a href="#">phone</a>
-                            <a href="#">fax</a>
-                            <a href="#">email</a>
+                            <a class="f_location" href="javascript:;">{{trans('app.location')}}</a>
+                            <a href="javascript:;">{{trans('app.phone')}}</a>
+                            <a href="javascript:;">{{trans('app.fax')}}</a>
+                            <a href="javascript:;">{{trans('app.contact-email')}}</a>
                         </div>
                         <div class="address">
-                            <a href="#">{{Setting::getIfExists("site_address")}} <br/><br/></a>
-                            <a href="#">{{Setting::getIfExists("site_phone")}}</a>
-                            <a href="#">{{Setting::getIfExists("site_fax")}}</a>
-                            <a href="#">{{Setting::getIfExists("emails_default")}}</a>
+                            <a href="javascript:;">{{Setting::getIfExists("site_address")}} <br/><br/></a>
+                            <a href="javascript:;">{{Setting::getIfExists("site_phone")}}</a>
+                            <a href="javascript:;">{{Setting::getIfExists("site_fax")}}</a>
+                            <a href="javascript:;">{{Setting::getIfExists("emails_default")}}</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6 contact_info send_message">
-                    <h2>Send Us a Message</h2>
+                    <h2>{{trans('app.send-us')}}</h2>
                     @if(isset($formErrors))
                         <div class="alert alert-danger alert-dismissible" role="start">
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -57,10 +57,10 @@
                     @endif
                     @if(isset($success)) {{$success}} @endif
                     {!!Form::open(['route'=>["contact.send"], "method"=>"POST", "class"=>"form-inline contact_box"])!!}
-                        <input type="text" name="first_name" class="form-control input_box" placeholder="First Name *" value="{{isset($first_name)?$first_name:"" }}">
-                        <input type="text" name="last_name" class="form-control input_box" placeholder="Last Name *"  value="{{isset($last_name)?$last_name:"" }}">
+                        <input type="text" name="first_name" class="form-control input_box" placeholder="{{ trans('app.first-name') }} *" value="{{isset($first_name)?$first_name:"" }}">
+                        <input type="text" name="last_name" class="form-control input_box" placeholder="{{ trans('app.last-name') }} *"  value="{{isset($last_name)?$last_name:"" }}">
                         <input type="email" name="email" class="form-control input_box" placeholder="{{ trans('app.contact-email') }}"  value="{{isset($email)?$email:"" }}">
-                        <input type="text" name="subject" class="form-control input_box" placeholder="Subject"  value="{{isset($subject)?$subject:"" }}">
+                        <input type="text" name="subject" class="form-control input_box" placeholder="{{ trans('app.subject') }}"  value="{{isset($subject)?$subject:"" }}">
                         <input type="text" name="cellphone" class="form-control input_box" placeholder="{{ trans('app.contact-tel') }}"  value="{{isset($cellphone)?$cellphone:"" }}">
                         <textarea name="message" class="form-control input_box" placeholder="{{ trans('app.contact-message') }}"  value="{{isset($message)?$message:"" }}"></textarea>
                         <button type="submit" class="btn btn-default">{{ trans('app.contact-send') }}</button>

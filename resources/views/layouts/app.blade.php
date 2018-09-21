@@ -1,3 +1,4 @@
+@if(!request()->ajax())
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}" >
 <head>
@@ -40,7 +41,9 @@
     <!-- Animate CSS -->
     <link href="{{ asset('vendors/animate/animate.css') }}" rel="stylesheet">
     <!-- Icon CSS-->
-	<link rel="stylesheet" href="{{ asset('vendors/font-awesome/css/font-awesome.min.css') }}">
+	<!--<link rel="stylesheet" href="{{ asset('vendors/font-awesome/css/font-awesome.min.css') }}">-->
+	    <link href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" rel="stylesheet">
+
     <!-- Camera Slider -->
     <link rel="stylesheet" href="{{ asset('vendors/camera-slider/camera.css') }}">
     <!-- Owlcarousel CSS-->
@@ -51,7 +54,7 @@
     @if(app()->getLocale()=='ar')
         <!-- Load Bootstrap RTL theme from RawGit -->
         <link rel="stylesheet" href="{{ asset('css/bootstrap-rtl.min.css')}}">
-        <link href="{{ asset('css/front-end-rtl.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/style-rtl.css') }}" rel="stylesheet">
     @endif
 
     {{--<link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">--}}
@@ -72,22 +75,15 @@
         <ul class="nav navbar-nav top_nav">
             <li><a href="#"><i class="fa fa-phone"></i>{{\App\Models\Setting::getIfExists('site_phone')}}</a></li>
             <li><a href="#"><i class="fa fa-envelope-o"></i>{{\App\Models\Setting::getIfExists('emails_default')}}</a></li>
-            <li><a href="#"><i class="fa fa-clock-o"></i>{{date("Y M d H:n")}}</a></li>
+            <li class="hidden-xs"><a href="#"><i class="fa fa-clock-o"></i>{{date("Y M d H:n")}}</a></li>
             {{--Mon - Sat 12:00 - 20:00--}}
         </ul>
 
-        <ul class="nav navbar-nav navbar-right social_nav">
+        <ul class="nav navbar-nav navbar-{{(app()->getLocale()=='ar')?'left':'right'}} social_nav">
             @foreach(Func::menu('header-social') as $sl)
                 {!!  Func::drowMenuLink($sl)!!}
             @endforeach
-                {{--<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>d--}}
-                {{--<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>--}}
-            {{--<li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>--}}
-            {{--<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>--}}
-            {{--<li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>--}}
-            {{--<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>--}}
-            {{----}}
-            <li><a href="{{route('swichlang')}}">{{(app()->getLocale()=='ar')?'EN':'ع'}}</a></li>
+            <!--<li><a href="{{route('swichlang')}}">{{(app()->getLocale()=='ar')?'EN':'ع'}}</a></li>-->
         </ul>
     </div>
 </section>
@@ -98,7 +94,7 @@
     <div class="container">
         <!-- searchForm -->
         <div class="searchForm">
-            <form action="#" class="row m0">
+            <form action="/{{app()->getLocale()}}" class="row m0">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-search"></i></span>
                     <input type="search" name="search" class="form-control" placeholder="Type & Hit Enter">
@@ -122,95 +118,53 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="col-md-10 p0">
             <div class="collapse navbar-collapse" id="min_navbar">
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-{{(app()->getLocale()=='ar')?'left':'right'}}">
                     @foreach(Func::menu('main') as $link)
                         {!!  Func::drowMenuLink($link)!!}
                     @endforeach
-                    <li><a href="#" class="nav_searchFrom"><i class="fa fa-search"></i></a></li>
-                    <!-- <li class="dropdown submenu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Home</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="index-2.html">Home 2</a></li>
-                        </ul>
+                    <li class="menu--home">
+                        <!--<a href="#" class=""><i class="fa fa-home"></i></a>-->
+                        <a href="#" class="nav_searchFrom"><i class="fa fa-search"></i></a>
                     </li>
-                    <li class="dropdown submenu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About Us</a>
-                        <ul class="dropdown-menu other_dropdwn">
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="about-2.html">About Us-2</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown submenu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services</a>
-                        <ul class="dropdown-menu other_dropdwn">
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="services-2.html">Services-2</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Gallery</a></li>
-                    <li class="dropdown submenu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="blog.html">Blog</a></li>
-                            <li><a href="blog-2.html">Blog-2</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="#" class="nav_searchFrom"><i class="fa fa-home"></i></a></li> -->
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div>
     </div><!-- /.container -->
 </nav>
 <!-- End Header_Area -->
-
+@endif
 
 @yield('content')
 
+@if(!request()->ajax())
 <!-- Footer Area -->
-<footer class="footer_area">
+<footer class="footer_area" style="border-top: 4px solid #e71d1d;">
         <div class="container">
             <div class="footer_row row">
                 <div class="col-md-4 col-sm-6 footer_about">
-                    <h2>ABOUT OUR COMPANY</h2>
-                    <img src="/images/logo.png" alt="">
+                    <!--<h2>ABOUT OUR COMPANY</h2>-->
+                    <img src="/images/logofooter.png" alt="">
 
-                    <p>{{Setting::getIfExists('site_desc','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.')}}</p>
+                    <!--<p>{{Setting::getIfExists('site_desc','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.')}}</p>-->
 
                     <ul class="socail_icon">
                         @foreach(Func::menu('social_links_footer') as $link)
                             {!!  Func::drowMenuLink($link)!!}
                         @endforeach
-                        {{--<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>--}}
-                        {{--<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>--}}
-                        {{--<li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>--}}
-                        {{--<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>--}}
                     </ul>
                 </div>
                 <div class="col-md-4 col-sm-6 footer_about quick">
-                    <h2>Quick links</h2>
+                    <h2>{{trans('app.quick-links')}}</h2>
                     <ul class="quick_link">
                         @foreach(Func::menu('quick_links_footer') as $link)
                             {!!  Func::drowMenuLink($link)!!}
                         @endforeach
-                        {{--<li><a href="#"><i class="fa fa-chevron-right"></i>Building Construction</a></li>--}}
-                        {{--<li><a href="#"><i class="fa fa-chevron-right"></i>Home Renovation</a></li>--}}
-                        {{--<li><a href="#"><i class="fa fa-chevron-right"></i>Hardwood Flooring</a></li>--}}
-                        {{--<li><a href="#"><i class="fa fa-chevron-right"></i>Repairing Of Roof</a></li>--}}
-                        {{--<li><a href="#"><i class="fa fa-chevron-right"></i>Commercial Construction</a></li>--}}
-                        {{--<li><a href="#"><i class="fa fa-chevron-right"></i>Concreate Transport</a></li>--}}
                     </ul>
                 </div>
-                {{--<div class="col-md-3 col-sm-6 footer_about">--}}
-                    {{--<h2>Twitter Feed</h2>--}}
-                    {{--<a href="#" class="twitter">@colorlib: Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.</a>--}}
-                    {{--<a href="#" class="twitter">@colorlib: Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.</a>--}}
-                {{--</div>--}}
                 <div class="col-md-4 col-sm-6 footer_about">
-                    <h2>CONTACT US</h2>
+                    <h2>{{trans('app.contact-us')}}</h2>
                     <address>
-                        <p>Have questions, comments or just want to say hello:</p>
+                        <p>{{trans('app.questions')}}:</p>
                         <ul class="my_address">
                             <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i>{{Setting::getIfExists('emails_default','info@omegaegy.net')}}</a></li>
                             <li><a href="#"><i class="fa fa-phone" aria-hidden="true"></i>{{Setting::getIfExists('site_phone','+202 2795 1402')}}</a></li>
@@ -301,3 +255,4 @@
   </script> -->
 </body>
 </html>
+@endif

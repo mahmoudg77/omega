@@ -1,15 +1,15 @@
 @extends('layouts.app')
 
-@section('title') Services @endsection
+@section('title') {{$singlePost->title}} @endsection
 
 @section('content')
-@if($cat=\App\Models\Category::where('slug','services')->first())
+
 <!-- Banner area -->
 <section class="banner_area" data-stellar-background-ratio="0.5">
-    <h2>{{$cat->title}}</h2>
+    <h2>{{$singlePost->title}}</h2>
     <ol class="breadcrumb">
         <li><a href="/">{{trans('app.home')}}</a></li>
-        <li><a href="javascript:;" class="active">{{$cat->title}}</a></li>
+        <li><a href="javascript:;" class="active">{{$singlePost->title}}</a></li>
     </ol>
 </section>
 <!-- End Banner area -->
@@ -18,55 +18,39 @@
 <section class="our_services_tow">
     
     <div class="container">
-        <div class="architecture_area services_pages">
+
+        <div class="architecture_area tabs">
             <div class="portfolio_filter portfolio_filter_2">
-                <ul>
-                    <li data-filter="*" class="active"><a href=""><i class="fa fa-wrench" aria-hidden="true"></i>{{trans('app.all')}}</a></li>
-                    @foreach($cat->Chields as $c)
-                    <li data-filter=".{{$c->slug}}"><a href="">
-                        <i class="{{$c->icon}}" aria-hidden="true"></i> {{$c->title}}</a>
-                    </li>
-                    @endforeach
-                </ul>
+            <ul>
+                <li data-filter="tab-item" style="width: 25%;"  class="active"><a  href="#" data-link="{{route('getPostBySlug','history')}}"><i class="fa fa-history" aria-hidden="true"></i> History</a></li>
+                <li data-filter="tab-item" style="width: 25%;"  ><a href="#" data-link="{{route('getPostBySlug','vision-mission')}}"> <i class="fa fa-eye " aria-hidden="true"></i> Vision & Mission</a></li>
+                <li data-filter="tab-item" style="width: 25%;"  ><a href="#" data-link="{{route('getPostBySlug','certified-authorized')}}"> <i class="fa fa-certificate" aria-hidden="true"></i> Certified & Authorized</a></li>
+                <li data-filter="tab-item" style="width: 25%;"  ><a href="#" data-link="{{route('getPostBySlug','organization')}}"> <i class="fa fa-sitemap " aria-hidden="true"></i> Organization</a></li>
+            </ul>
+
             </div>
-            <div class="portfolio_item portfolio_2">
-               <div class="grid-sizer-2"></div>
-                <div class="blog_tow_area ">
-                   <div class="row blog_tow_row">
-                       @foreach($cat->Chields as $c)
-                       @foreach($c->Posts()->orderBy('id','desc')->limit(6)->get() as $p)
-                        <div class="single_facilities {{$c->slug}} col-sm-4">
-                            <div class="renovation">
-                                <img src="{{$p->mainImage()}}" alt="{{$p->title}}" class="img-responsive img-thumbnail"/>
-                                <div class="renovation_content">
-                                    <a class="clipboard" href="{{route('getPostBySlug', $p->slug) }}">
-                                        <i class="fa fa-clipboard" aria-hidden="true"></i></a>
-                                    <a class="tittle" href="{{route('getPostServicesBySlug', $p->slug) }}">
-                                        <i class="fa fa-pencil form-ate"></i> {{$p->title}} &nbsp &nbsp
-                                        <span class="date_comment"><i class="fa fa-calendar for-mate" aria-hidden="true"></i> {{ $p->created_at!=null?$p->created_at->toDateString('M-d-Y'):'' }}</span>
-                                    </a>
-                                    <hr>    
-                                    <!--<div class="date_comment">-->
-                                    <!--    <a href="javascript:;"><i class="fa fa-calendar" aria-hidden="true"></i>-->
-                                    <!--        {{ $p->created_at!=null?$p->created_at->toDateString('M-d-Y'):'' }}-->
-                                    <!--    </a>-->
-                                    <!--    <a href="#"><i class="fa fa-commenting-o" aria-hidden="true"></i>3</a>-->
-                                    <!--</div>-->
-                                    {!! str_limit($p->body, 200) !!}
-                                </div>
-                            </div>
-                        </div>
-                       @endforeach
-                       @endforeach
-                   </div>
-                </div>
+            <div class="portfolio_item">
+                <div class="single_facilities tab-item ">
+                  </div>
             </div>
-        </div>
     </div>
     
 </section>
 <!-- End Our Services Area -->
-@endif
 
-@stop
+
+@endsection
+@section('js')
+<script>
+    $(function(){
+       $(".architecture_area li").click(function(){
+           //e.preventDefault();
+           var $this=$(this);
+           $this.closest('.tabs').find('.portfolio_item').first('div').load($this.find('a').data('link'));
+       });
+       $(".tabs li.active").click();
+    });
+</script>
+
+@endsection
 

@@ -41,15 +41,23 @@
                         {{Form::text("slug",null,['required','class'=>'form-control'])}}
                     </div>
                 </div>
-                @if($postType->has_category==1)
+                @if($postType->has_category>0)
+                    @if($catlist=Func::getCategoriesList($postType->has_category))
+                        @if(count(reset($catlist))>1)
                             <div class="form-group">
                                 <label class="control-label col-md-2">Category</label>
                                 <div class="col-md-10">
-                                    {{Form::select("category_id",Func::getCategoriesList(),null,["required",'class'=>'form-control'])}}
+                                    {{Form::select("category_id",Func::getCategoriesList($postType->has_category),null,["required",'class'=>'form-control'])}}
                                 </div>
                             </div>
+                        @else
+                            {{Form::hidden('category_id',$postType->has_category)}}
+                        @endif
+                    @else
+                            {{Form::hidden('category_id',$postType->has_category)}}
+                    @endif
                 @else
-                            {{Form::hidden('category_id',0)}}
+                    {{Form::hidden('category_id',0)}}
                 @endif
 
                     {{Form::hidden('post_type_id',\request()->get('type'))}}
@@ -78,6 +86,22 @@
                             </div>
                         @endif
                       <hr>
+                      
+                    @if(count(App\Models\PostTypeProperty::getProperties($postType->id))>0)
+                        @foreach(App\Models\PostTypeProperty::getProperties($postType->id) as $prop)
+                            @if($prop->is_single)
+                                 <div class="form-group">
+                                    <label class="control-label col-md-2">{{$prop->name}}</label>
+                                    <div class="col-md-10">
+                                        {{Form::select("props[".$prop->id."]",$prop->relatedDatasource()->listsTranslations('title')->pluck('title','id'),null,['class'=>'form-control','placeholder'=>'Select '.$prop->name.' ..'])}}
+                                    </div>
+                                </div>
+                            @else
+                                
+                            @endif
+                        @endforeach
+                    @endif
+            
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
                         <button type="submit" class="btn btn-success create"><i class="fa fa-save"></i> Create</button>

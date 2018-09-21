@@ -117,6 +117,21 @@ class PostController extends IController
               }
 
           }
+          
+          \App\Models\PostProperty::where('post_id',$post->id)->delete();
+          if(in_array('props',$data)){
+              $props=$data['props'];
+              if(isset($props) && $props!=null && is_array($props)){
+                  //$list=explode(',',$tags);
+                  foreach ($props as $key=>$prop){
+                     if($dbprop=\App\Models\PostTypeProperty::find($key))
+                             \App\Models\PostProperty::create(['property_id'=>$dbprop->id,'post_id'=>$post->id,'related_post_id'=>$prop]);
+                     // dd($tag);
+                      //$post->Tags()->attach([$dbtag->id]);
+                  }
+    
+              }
+          }
           DB::commit();
 
           return  Func::Success("Save Success");
@@ -171,7 +186,24 @@ class PostController extends IController
               }
 
           }
-
+          
+          \App\Models\PostProperty::where('post_id',$data->id)->delete();
+          //dd($reqData);
+          if(in_array('props',array_keys($reqData))){
+              $props=$reqData['props'];
+              //dd($props);
+              if(isset($props) && $props!=null && is_array($props)){
+                  //$list=explode(',',$tags);
+                  foreach ($props as $key=>$prop){
+                     if($dbprop=\App\Models\PostTypeProperty::find($key))
+                             \App\Models\PostProperty::create(['property_id'=>$dbprop->id,'post_id'=>$data->id,'related_post_id'=>$prop]);
+                     // dd($tag);
+                      //$post->Tags()->attach([$dbtag->id]);
+                  }
+    
+              }
+          }
+          
           DB::commit();
           return  Func::Success("Save Success");
       }catch (\Exception $ex){

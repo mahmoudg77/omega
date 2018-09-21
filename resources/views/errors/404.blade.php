@@ -2,6 +2,9 @@
 
 @section('content')
     <link href='https://fonts.googleapis.com/css?family=Anton|Passion+One|PT+Sans+Caption' rel='stylesheet' type='text/css'>
+<section class="blog_all">
+    <div class="container">
+        <div class="row m0 blog_row">
 
 
     <!-- Error Page -->
@@ -19,7 +22,9 @@
         </div>
     </div>
     <!-- Error Page -->
-
+ </div>
+    </div>
+</section>
 @endsection
 
 @section('css')
@@ -117,7 +122,7 @@
             position: relative;
             top: 8%;
             color: white;
-            background: #07B3F9;
+            background: #E71D1D;
             border-radius: 50%;
             display: inline-block;
             transform: skew(45deg);

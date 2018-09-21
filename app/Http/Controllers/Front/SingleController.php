@@ -40,11 +40,25 @@ class SingleController extends Controller
         $related_posts = Post::where('id', '!=', $singlePost->id)->where('is_published',1)
             ->where('category_id', '=', $singlePost->category_id)->take(3)->get();
         
-        if($singlePost->post_type_id==1 || $singlePost->post_type_id==3 ){
-            return view('page', compact('singlePost', 'lastPosts', 'allcats'));
-        }elseif($singlePost->post_type_id==2 || $singlePost->post_type_id==4){
-            return view('singleBlog', compact('singlePost', 'lastPosts', 'allcats', 'related_posts'));
+        
+        
+        if(view()->exists('front.single.' . strtolower($singlePost->slug))){
+            return view('front.single.' . strtolower($singlePost->slug), compact('singlePost', 'lastPosts', 'allcats', 'related_posts'));
+        }elseif(view()->exists('front.single.' . strtolower($singlePost->PostType->name))){
+            return view('front.single.' . strtolower($singlePost->PostType->name), compact('singlePost', 'lastPosts', 'allcats', 'related_posts'));
         }
+        else{
+            return view('front.single.single', compact('singlePost', 'lastPosts', 'allcats', 'related_posts'));
+        }
+
+//
+//        if($singlePost->post_type_id==1 || $singlePost->post_type_id==3 ){
+//            return view('page', compact('singlePost', 'lastPosts', 'allcats'));
+//        }elseif($singlePost->post_type_id==2 || $singlePost->post_type_id==4){
+//            return view('singleBlog', compact('singlePost', 'lastPosts', 'allcats', 'related_posts'));
+//        }else{
+//            return view('singleBlog', compact('singlePost', 'lastPosts', 'allcats', 'related_posts'));
+//        }
 
     }
 

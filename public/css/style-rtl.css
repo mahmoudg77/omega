@@ -1,0 +1,33 @@
+.top_header_area .top_nav li a{padding-right: 30px;}
+.top_header_area .top_nav li a i{padding-left: 10px;}
+.header_aera .navbar-collapse .navbar-nav.navbar-left li a {
+  font: 700 14px/100px "Roboto", sans-serif;
+  color: #222222;
+  text-transform: uppercase;
+  padding: 0;
+  padding-left: 30px;
+}
+.header_aera .navbar-collapse .navbar-nav.navbar-left li a:hover, .header_aera .navbar-collapse .navbar-nav.navbar-left li a:focus {
+  color: #e71d1d;
+}
+.header_aera .navbar-collapse .navbar-nav.navbar-left li .nav_searchFrom {
+  width: 100px;
+  background: #e71d1d;
+  color: #fff;
+  padding: 0;
+  text-align: center;
+  margin-left: 15px;
+}
+.header_aera .navbar-collapse .navbar-nav.navbar-left li .nav_searchFrom:hover, .header_aera .navbar-collapse .navbar-nav.navbar-left li .nav_searchFrom:focus {
+  color: #222222;
+}
+.subtittle h2:after {right: 0;}
+.our_services_area .portfolio_inner_area .portfolio_filter ul li:first-child{
+    padding: 0 30px;
+}
+.footer_area .footer_row .footer_about .quick_link li a{padding-right: 30px;}
+.footer_area .footer_row .footer_about .quick_link li a i{padding-left: 20px;padding-right:0;right:0;}
+.footer_area .footer_row .footer_about address .my_address li a i{padding-left: 20px;}
+.footer_area .footer_row .footer_about address .my_address li span {    padding-right: 47px !important;}
+.all_contact_info .contact_row .contact_info h2:after{right: 0 !important;}
+.all_contact_info .contact_row .contact_info .location .location_laft{float: right;}

@@ -17,9 +17,9 @@ class CatServicesController extends Controller
         
         \App\Models\Visit::log("HomePage",0);
         
-        return view('services', compact('allServices'));
+        return view('front.services', compact('allServices'));
     }
-    
+     
 }
 
 ?>

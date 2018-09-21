@@ -90,7 +90,7 @@ class IController extends BaseController
 
            //setting
            $cp_menu['Setting']=[
-            'url'=>route('cp.setting.index'),
+            'url'=>route('cp.setting.edit'),
             'roles'=>['admin'],
 //            'submenu'=>[
 //              //'Post Type'=>['url'=>route('cp.post-type.index',['menu'=>'Setting']),'roles'=>['admin'],'submenu'=>null],

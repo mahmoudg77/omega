@@ -34,11 +34,54 @@ class Post extends Model
     }
     public function Files()
     {
-      return $this->hasMany("App\Models\File","model_id","id")->where('model_name',self::class);;
+      return $this->hasMany("App\Models\File","model_id","id")->where('model_name',self::class);
     }
     public function MediaFiles()
     {
-      return $this->hasMany("App\Models\MediaFile","model_id","id")->where('model_name',self::class);;
+      return $this->hasMany("App\Models\MediaFile","model_id","id")->where('model_name',self::class);
+    }
+    public function Properties()
+    {
+        $cat=$this->category_id;
+      return $this->hasMany("App\Models\PostTypeProperty","post_type_id","post_type_id")
+      ->where(
+          function($t)use($cat){
+            return $t->where('category_id',$cat)->orWhere('category_id',0)->orWhereNull('category_id');
+          }
+         );
+    }
+    public function RelatedPost($name){
+        $data=$this->properties();
+        if(!$data) return new Post();
+        
+        
+        $data=$data->where('name',$name)->first();
+        
+        if(!$data) return  new Post();
+        
+        $data=$data->data($this->id);
+        if(!$data) return  new Post();
+        
+        return $data->RelatedPost;
+    }
+    public function RelatedPosts($name){
+        $data=$this->properties();
+        if(!$data) return [];
+        
+        
+        $data=$data->where('name',$name)->first();
+        
+        if(!$data) return [];
+        
+        $data=$data->data($this->id);
+        if(!$data) return  [];
+        
+       
+        $ids=[];
+        foreach($data as $d)$ids[]=$d->related_post_id;
+        $data=self::whereIn('id',$ids)->get();
+       
+        return $data;
     }
     public function Creator()
     {

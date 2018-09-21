@@ -2692,16 +2692,121 @@ a:focus, a:hover, .btn:focus, .btn:hover, button:focus, button:hover {
 .footer_area .footer_row .footer_about address .my_address li span {padding-left: 5px !important;}
 .dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover {background-color: #fff !important;}
 .blog_tow_area {padding-top: 0px;}
+.login-page{margin:40px 0;}
+.login-page .panel-default{padding:20px !important;}
+@media (max-width: 767px){
+.header_aera .navbar-header .navbar-brand {padding: 0 !important;width:80%;}
+}
+.menu-home{
+    width: 100px;
+    background: #e71d1d;
+    color: #fff;
+    padding: 0;
+    text-align: center;
+    margin-left: 15px;
+}
+.menu-home:hover, .menu-home:focus{
+    color: #222222;
+}
+
+.header_aera .navbar-header .navbar-brand{padding-top:5px !important;}
+.header_aera .navbar-header .navbar-brand img {width:240px !important;max-width: none;}
+.footer_area .footer_row .footer_about p {text-align:justify;}
+
 /*start section slider*/
 .slider_area .slider_inner .camera_caption div a{color:#fff !important;}
 .slider_area .slider_inner .camera_caption div a:hover, .slider_area .slider_inner .camera_caption div a:focus{color:#555 !important;}
 /*end section slider*/
 
 /*start section blog*/
+.blog_all{background:#eceff1}
 .blog_all .tags a{color: #555;}
 .blog_all .tags a:hover, .blog_all .tags a:focus{color:#222;}
 .blog_admin{color:#555 !important;}
 .blog_admin:hover, .blog_admin:focus{color:#222 !important;}
+.blog_all .blog_row .main_blog .blog-img{
+    width: 100%;
+    height: 350px;
+    display: block;
+}
+.blog_all .blog{
+    background: #fff;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+}
+.blog_all .blog-body{padding:10px 20px;}
+.blog_all .blog-body p{line-height: 30px !important;}
+.blog_all .blog-body .blog-client{
+    font-size: 17px;
+    color: #e71d1d;
+}
+.blog_all .resent{
+    background: #fff;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+    padding: 30px;
+    overflow: hidden;
+}
+.blog_all .resent h3{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Oswald' !important;
+    text-transform: uppercase;
+    font-size: 18px !important;
+    letter-spacing: 1px;
+    color: #555 !important;
+    margin-bottom: 20px;
+}
+.blog_all .resent h3:after{
+    background: #666;
+    width: 15px;
+    height: 1px;
+    content: '';
+    display: block;
+    margin-top: 15px;
+}
+.blog_all .blog_row .widget_area .resent .media{border-bottom: 1px solid #eee !important;}
+.blog_tow_area .blog_tow_row .renovation .renovation_content{
+    hei-ght: 320px;
+    over-flow: hidden;
+}
+.latest_blog_area .blog_content{}
+
 /*end section blog*/
+
+/*start section services*/
+.blog_tow_area .renovation{
+    box-shadow: 0 2px 3px rgba(0,0,0,.3);
+    -moz-box-shadow: 0 2px 3px rgba(0,0,0,.3);
+    -webkit-box-shadow: 0 2px 3px rgba(0,0,0,.3);
+    -o-box-shadow: 0 2px 3px rgba(0,0,0,.3);
+    -ms-box-shadow: 0 2px 3px rgba(0,0,0,.3);
+    background: #eee;
+    padding: 7px;
+    border-radius: 3px;
+    padding-bottom: 0px !important;
+    margin-bottom: 20px;
+}
+.blog_tow_area .renovation img{height: 260px;width: 100%;}
+.blog_tow_area .blog_tow_row .renovation .renovation_content{height: 330px;border:none !important;}
+.blog_tow_area .blog_tow_row .renovation .renovation_content .formate{
+    background: #ff7f66;
+    width: 20px;
+    height: 16px;
+    /* display: block; */
+    border-radius: 3px;
+    /* float: left; */
+    line-height: 18px;
+    font-size: 11px;
+    color: #fff;
+    text-align: center;
+}
+.blog_tow_area .blog_tow_row .renovation .renovation_content hr{border-top: 1px solid #fff !important;margin-bottom: 0px !important;}
+/*end section services*/
+
+
+
 
 /*End My Css Theame*/

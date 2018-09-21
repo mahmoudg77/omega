@@ -40,7 +40,7 @@
           <div class="form-group  col-sm-12">
                     <label class="control-label col-md-2">fa icon</label>
                     <div class="col-md-10">
-                        {{Form::text("icon",$data->icon,array( 'class'=>'form-control', 'placeholder'=>'Icon class name ....'))}}
+                        {{Form::text("icon",$data->icon,array( 'class'=>'form-control iconPicker', 'placeholder'=>'Icon class name ....'))}}
                     </div>
                 </div>
         <div class="form-group  col-sm-12">
@@ -63,4 +63,17 @@
     </div>
     </div>
 </section>
+@endsection
+@section('css')
+    <link href="{{ asset('cp/css/fontawesome-iconpicker.min.css')}}" rel="stylesheet" />
+@endsection
+@section('js')
+
+    <!-- fontIconPicker JS -->
+    <script type="text/javascript" src="{{ asset('cp/js/fontawesome-iconpicker.min.js')}}"></script>
+    <script>
+        $(function(){
+            $('.iconPicker').iconpicker();
+        });
+    </script>
 @stop

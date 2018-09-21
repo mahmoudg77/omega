@@ -12,7 +12,7 @@ class ContactController extends Controller
         $page=Func::getPageBySlug('contact-us');
         if($page)
             \App\Models\Visit::log(\App\Models\Post::class,$page->id);
-        return view('contact-us');
+        return view('front.contact-us');
     }
     
 //    public function send(Request $request){
@@ -101,11 +101,11 @@ class ContactController extends Controller
 //                $msg = '';
 
                 $success = '<div class="alert alert-success">We Have Recieved Your Message</div>';
-                return view('contact-us',compact('success'));
+                return view('front.contact-us',compact('success'));
 
             }
            // return "asdasdasdas";
            //return back()->with('success', 'Thanks for contacting us!');
-            return view('contact-us',compact('first_name' ,'last_name','subject','email','message','cellphone','formErrors'));
+            return view('front.contact-us',compact('first_name' ,'last_name','subject','email','message','cellphone','formErrors'));
        }
 }

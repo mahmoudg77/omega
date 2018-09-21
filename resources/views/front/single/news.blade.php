@@ -18,28 +18,11 @@
     <div class="container">
         <div class="row m0 blog_row">
             <div class="col-sm-8 main_blog">
-                <div class="blog-body">
-                    <div class="sin-gle-box" >
-                        <img src="{{$singlePost->mainImage()}}" class="img-responsive img-thumbanail" style="width:100%"/>
+                <div class="blog">
+                    <img src="{{$singlePost->mainImage()}}" class="img-responsive img-thumbanail" style="width:100%"/>
+                    <div class="blog-body" >
                         <h2 style="margin:20px 0;">{{ $singlePost->title }}</h2>
-
-                        {{--<div class="bar-data" style="padding:10px">--}}
-                                {{--<span>--}}
-                                    {{--<i class="fa fa-user"></i> {{ $singlePost->Creator!=null?$singlePost->Creator->name:null }}--}}
-                                {{--</span>--}}
-                                {{--<span>--}}
-                                    {{--<i class="fa fa-folder"></i>--}}
-                                    {{--<a href="{{route('categoryBySlug', $singlePost->Category->slug)}}">{{ $singlePost->Category->title }}</a>--}}
-                                {{--</span>--}}
-                                {{--<span>--}}
-                                    {{--<i class="glyphicon glyphicon-time" style="font-size: 13px;"></i>--}}
-                                    {{--{{ $singlePost->created_at!=null?$singlePost->created_at->toDateString():'' }}--}}
-                                {{--</span>--}}
-                                {{--<span class="tags"><i class="fa fa-tags"></i> {!! Func::tagLinks($singlePost->strTags())!!}</span>--}}
-                        {{--</div>--}}
-
                         <hr style="margin:5px 0;">
-                        
                         <div style="line-height: 40px;margin: 30px 0;">{!! $singlePost->body !!}</div>
                         <hr style="margin:5px 0 20px;">
                         <div>
@@ -62,7 +45,7 @@
                                     <figure>
                                         <img class="img-responsive center-block" src="{{$rpost->mainImage()}}"/>
                                     </figure>
-                                    <h4 class="related-title" style="background-color: #e71d1d;padding: 10px;color: #fff;">
+                                    <h4 class="related-title" style="background-color: #dc4e41;padding: 10px;color: #fff;">
                                         {!! str_limit($rpost->title, 30) !!}
                                     </h4>
                                 </div>
@@ -111,32 +94,7 @@
                 </div>
             </div>
             <div class="col-sm-4 widget_area">
-                <div class="resent" style="padding-bottom: 40px;">
-                    <h3 class="text-uppercase">{{trans('app.last articles')}}</h3>
-                    <hr>
-                    @if($cat=\App\Models\Category::where('slug','blog')->first())
-                    @foreach($cat->Posts()->orderBy('id','desc')->limit(4)->get() as $post)
-                        <div class="media">
-                            <div class="media-left">
-                                <a href="#">
-                                    <img class="media-object" src="{{$post->mainImage()}}" alt="{{ $post->title}}" style="width:70px;">
-                                </a>
-                            </div>
-                            <div class="media-body">
-                                <a href="{{route('getPostBySlug', $post->slug) }}">{!! str_limit($post->body, 70) !!}</a>
-                                <h6>{{ $post->created_at!=null?$post->created_at->toDateString():'' }}</h6>
-                            </div>
-                        </div>
-                    @endforeach
-                   @endif
-                </div>
-
-                <div class="resent">
-                    <h3>Tag</h3>
-                    <ul class="tag">
-                        <li>{!! Func::tagLinks($post->strTags())!!}</li>
-                    </ul>
-                </div>
+                @include('front.sidebar',['slug'=>'news'])
             </div>
         </div>
     </div>
