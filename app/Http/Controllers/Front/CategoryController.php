@@ -30,7 +30,11 @@ class CategoryController extends Controller
 
         \App\Models\Visit::log(\App\Models\Category::class,$category->id);
 
-         if(view()->exists('front.category.' . $slug)){
+        if(view()->exists('front.category.' . strtolower($slug))){
+            return view('front.category.' . strtolower($slug), compact('data', 'title','description','slug'));
+        }elseif($category->parent_id>0 && view()->exists('front.category.catparent_' . strtolower($category->Parent->slug)) ){
+            return view('front.category.catparent_' . strtolower($category->Parent->slug), compact('data', 'title','description','slug'));
+        }elseif(view()->exists('front.category.' . $slug)){
             return view('front.category.' . $slug, compact('data', 'title','description','slug'));
         }else{
             return view('front.category.category', compact('data', 'title','description','slug'));
