@@ -36,7 +36,8 @@
                                         <i class="fa fa-pencil form-ate"></i> {{$p->title}} &nbsp &nbsp
                                         <span class="date_comment"><i class="fa fa-calendar for-mate" aria-hidden="true"></i> {{ $p->created_at!=null?$p->created_at->toDateString('M-d-Y'):'' }}</span>
                                     </a>
-                                    <hr>
+                                    <hr/>
+                                    Client : {{$p->RelatedPost('Client')->title}}
                                     {!! str_limit($p->body, 200) !!}
                                 </div>
                             </div>
